@@ -13,7 +13,6 @@ const swiper1 = new Swiper(".slider-1", {
 });
 
 const swiper2 = new Swiper(".slider-2", {
-	// loop: true,
 	grabCursor: true,
 	spaceBetween: 30,
 	navigation: {
@@ -51,30 +50,6 @@ const swiper3 = new Swiper(".slider-3", {
 		},
 	},
 });
-
-var user = document.getElementsByClassName("featured")[0].getElementsByTagName("span")[0].innerText;
-document.getElementsByClassName("featured")[0].getElementsByTagName("span")[0].remove();
-
-for (let index = 0; index < document.getElementsByClassName("addToCart").length; index++) {
-	document.getElementsByClassName("addToCart")[index].value = document.getElementsByClassName("addToCart")[index].getElementsByTagName("span")[0].innerText;
-	document.getElementsByClassName("addToCart")[index].getElementsByTagName("span")[0].remove();
-}
-
-for (let index = 0; index < document.getElementsByClassName("addToCart").length; index++) {
-	console.log(document.getElementsByClassName("addToCart")[index].value);
-}
-
-function add_Product(element) {
-    var day_str = new Date();
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
-        }
-    };
-    xmlhttp.open("GET", "?url=Home/create_cart/" + day_str.getFullYear() + "-" + String(day_str.getMonth() + 1) + "-" + String(day_str.getDate()) + "/" + element.value + "/" + 1 + "/", true);
-    xmlhttp.send();
-}
 
 function enformat(element) {
 	let nodestr = "";

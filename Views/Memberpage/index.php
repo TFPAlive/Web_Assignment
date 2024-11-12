@@ -26,6 +26,7 @@
         <div class="container-fuild member-info">
             <div class="row flex-wrap m-0">
                 <h2>Danh sách thành viên</h2> 
+                <div id="notice"></div>
                 <?php if(!empty($data["member"])):?> 
                 <?php foreach($data["member"] as $row): ?> 
                     <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">

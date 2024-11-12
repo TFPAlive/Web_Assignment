@@ -1,6 +1,16 @@
 filterComment("all");
 
-var forms = document.querySelectorAll('.needs-validation')
+var forms = document.querySelectorAll('.needs-validation'),
+		btnContainer = document.getElementById("filter-rating-btn"),
+		tabs = btnContainer.getElementsByClassName("button-filter"),
+		right_content = document.getElementsByClassName("right-content")[0],
+		minusBtn = right_content.getElementsByClassName("minus-qty-btn")[0],
+		plusBtn = right_content.getElementsByClassName("plus-qty-btn")[0],
+		qty = right_content.getElementsByTagName("input")[0],
+		modal = document.getElementById("editItem-modal"),
+		btn = document.getElementById("edit-itemBtn"),
+		span = document.getElementsByClassName("close-modal-edit")[0];
+
 Array.prototype.slice.call(forms)
 	.forEach(function(form) {
 		form.addEventListener('submit', function(event) {
@@ -13,10 +23,6 @@ Array.prototype.slice.call(forms)
 		}, false)
 	})
 
-
-// Add active class to the current control button (highlight it)
-let btnContainer = document.getElementById("filter-rating-btn");
-let tabs = btnContainer.getElementsByClassName("button-filter");
 for (let i of tabs) {
 	i.addEventListener("click", function() {
 		let current = btnContainer.getElementsByClassName("current-btn");
@@ -25,7 +31,6 @@ for (let i of tabs) {
 	});
 }
 
-// thumbnails images of item
 $(document).ready(function() {
 	$('.addition-img img').click(function(e) {
 		e.preventDefault();
@@ -33,28 +38,6 @@ $(document).ready(function() {
 	})
 });
 
-function minus(element) {
-	var a = Number(element.value) - 1;
-	if (a <= 1) element.value = 1;
-	else element.value = a;
-}
-
-function plus(element) {
-	var a = Number(element.value) + 1;
-	element.value = a;
-}
-
-function display_total(element1, element2, element3) {
-	var a = element1.innerText[0] * element2.innerText;
-	console.log(element1.innerText);
-	if (a <= 0) element3.innerText = 0;
-	else element3.innerText = a + element1.innerText.slice(1, element1.innerText.length);
-}
-
-var right_content = document.getElementsByClassName("right-content")[0];
-var minusBtn = right_content.getElementsByClassName("minus-qty-btn")[0];
-var plusBtn = right_content.getElementsByClassName("plus-qty-btn")[0];
-var qty = right_content.getElementsByTagName("input")[0];
 
 if (minusBtn) minusBtn.onclick = function() {
 	minus(qty);
@@ -68,7 +51,6 @@ function filterComment(c) {
 	let x;
 	x = document.getElementsByClassName("filterCmt");
 	if (c == "all") c = "";
-	// Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
 	for (let i = 0; i < x.length; i++) {
 		removeClass(x[i], "show");
 		if (x[i].className.indexOf(c) > -1) addClass(x[i], "show");
@@ -88,7 +70,6 @@ function filterComment(c) {
 	}
 }
 
-// Show filtered elements
 function addClass(element, name) {
 	let arr1, arr2;
 	arr1 = element.className.split(" ");
@@ -100,7 +81,6 @@ function addClass(element, name) {
 	}
 }
 
-// Hide elements that are not selected
 function removeClass(element, name) {
 	var arr1, arr2;
 	arr1 = element.className.split(" ");
@@ -112,6 +92,7 @@ function removeClass(element, name) {
 	}
 	element.className = arr1.join(" ");
 }
+
 if (!document.getElementById("edit-itemBtn") && document.getElementsByClassName("add-comment")[0]) {
 	document.getElementsByClassName("add-comment")[0].getElementsByTagName("button")[0].onclick = function() {
 		var text = document.getElementsByClassName("add-comment")[0].getElementsByTagName("textarea");
@@ -164,7 +145,6 @@ function delete_comment(cid, element) {
 				window.location.reload()
 			}, 600);
 
-			//element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
 		} else if (this.responseText == "Nope") {
 			document.getElementById("notice").innerHTML = add_notice(this.responseText);
 			document.getElementsByClassName("alert")[0].style.display = "block";
@@ -187,9 +167,6 @@ function sort_comment(pid) {
 	xmlhttp.open("GET", "?url=Home/sort_comment/" + pid + "/" + sort_value + "/", true);
 	xmlhttp.send();
 }
-
-var user = document.getElementsByClassName("container-fluid")[0].getElementsByTagName("span")[0].innerText;
-document.getElementsByClassName("container-fluid")[0].getElementsByTagName("span")[0].remove();
 
 function add_Product(element) {
 	var pid = document.getElementsByClassName("addtocart-btn")[0].getElementsByTagName("button")[0].value;
@@ -247,30 +224,18 @@ for (var i = 0; i < encode_related_item.length; i++) {
 	encode_related_item[i].innerText = enformat(String(Number(encode_related_item[i].innerText.split("đ")[0]))) + "đ";
 }
 
-// Get the modal
-var modal = document.getElementById("editItem-modal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("edit-itemBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close-modal-edit")[0];
-
-// When the user clicks on the button, open the modal
 if (btn) {
 	btn.onclick = function() {
 		modal.style.display = "block";
 	}
 }
 
-// When the user clicks on <span> (x), close the modal
 if (span) {
 	span.onclick = function() {
 		modal.style.display = "none";
 	}
 }
 
-// When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
 	if (event.target == modal) {
 		modal.style.display = "none";

@@ -32,22 +32,22 @@ function register(){
             if(this.responseText == "null1"){
                 document.getElementById("notice").innerHTML = add_notice("fail", "Bạn là thành viên bị cấm" );
                 document.getElementsByClassName("alert")[0].style.display = "block";
-                setTimeout(function(){document.getElementsByClassName("alert")[0].style.opacity = 0;}, 1500);
+                setTimeout(function(){document.getElementsByClassName("alert")[0].style.display = "none";}, 1500);
             }
             else if(this.responseText == "null2"){
                 document.getElementById("notice").innerHTML = add_notice("fail", "Tài khoản của bạn đã tồn tại" );
                 document.getElementsByClassName("alert")[0].style.display = "block";
-                setTimeout(function(){document.getElementsByClassName("alert")[0].style.opacity = 0;}, 1500);
+                setTimeout(function(){document.getElementsByClassName("alert")[0].style.display = "none";}, 1500);
             }
             else if(this.responseText == "null3"){
                 document.getElementById("notice").innerHTML = add_notice("fail", "Tạo tài khoản thất bại" );
                 document.getElementsByClassName("alert")[0].style.display = "block";
-                setTimeout(function(){document.getElementsByClassName("alert")[0].style.opacity = 0;}, 1500);
+                setTimeout(function(){document.getElementsByClassName("alert")[0].style.display = "none";}, 1500);
             }
             else if(this.responseText == "ok"){
                 document.getElementById("notice").innerHTML = add_notice("success", "Tạo tài khoản thành công" );
                 document.getElementsByClassName("alert")[0].style.display = "block";
-                setTimeout(function(){document.getElementsByClassName("alert")[0].style.opacity = 0;}, 1500);
+                setTimeout(function(){document.getElementsByClassName("alert")[0].style.display = "none";}, 1500);
                 setTimeout(function(){window.location.href = "?url=/Home/Login/"});
             }
         }

@@ -1,20 +1,15 @@
+var modal = document.getElementById("myModal"),
+		span = document.getElementsByClassName("close")[0],
+		id_message = "1";
+
 function inform(element) {
 	modal.getElementsByTagName("input")[0].value = element.parentNode.getElementsByTagName("input")[1].value;
 	id_message = element.parentNode.parentNode.getElementsByTagName("h4")[0].innerText.split("#")[1];
 	modal.style.display = "block";
 }
 
-var modal = document.getElementById("myModal");
-var span = document.getElementsByClassName("close")[0];
-var button = document.getElementsByClassName("btn btn-primary")[4];
-var id_message = "1";
 span.onclick = function() {
 	modal.style.display = "none";
-};
-window.onclick = function(event) {
-	if (event.target == modal) {
-		modal.style.display = "none";
-	}
 };
 
 function add_notice(alert, string) {

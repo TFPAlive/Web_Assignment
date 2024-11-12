@@ -81,13 +81,13 @@ function login(){
 			if(this.responseText != "null"){
 				document.getElementById("notice").innerHTML = add_notice("success", "Đăng nhập thành công" );
 				document.getElementsByClassName("alert")[0].style.display = "block";
-				setTimeout(function(){document.getElementsByClassName("alert")[0].style.opacity = 0;}, 1500);
+				setTimeout(function(){document.getElementsByClassName("alert")[0].style.display = "none";}, 1500);
 				window.location.href = this.responseText;
 			}
 			else{
 				document.getElementById("notice").innerHTML = add_notice("fail", "Tên đăng nhập hoặc mật khẩu không đúng" );
 				document.getElementsByClassName("alert")[0].style.display = "block";
-				setTimeout(function(){document.getElementsByClassName("alert")[0].style.opacity = 0;}, 1500);; // addcart -> login => item // nhấn cart => login => cart // nhấn login => home => login đổi logout
+				setTimeout(function(){document.getElementsByClassName("alert")[0].style.display = "none";}, 1500);
 			}
 		}
 	};

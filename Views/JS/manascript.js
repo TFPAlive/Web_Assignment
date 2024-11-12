@@ -1,3 +1,7 @@
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+var modal_button = document.getElementsByClassName("modal-button");
+
 document.getElementsByClassName("container-fuild")[0].classList.add("white");
 function see_profile(element){
     var xmlhttp = new XMLHttpRequest();
@@ -12,7 +16,7 @@ function see_profile(element){
             else{
                 document.getElementById("notice").innerHTML = add_notice("fail", "Danh sách thành viên bị lỗi" );
                 document.getElementsByClassName("alert")[0].style.display = "block";
-                setTimeout(function(){document.getElementsByClassName("alert")[0].style.opacity = 0;}, 1500);
+                setTimeout(function(){document.getElementsByClassName("alert")[0].style.display = "none";}, 1500);
             }
         }
     };
@@ -20,9 +24,6 @@ function see_profile(element){
     xmlhttp.send();
   
 }
-var modal = document.getElementById("myModal");
-var span = document.getElementsByClassName("close")[0];
-var modal_button = document.getElementsByClassName("modal-button");
 
 span.onclick = function() {
   modal.style.display = "none";
@@ -32,6 +33,7 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 };
+
 function remove_account(element){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function(){
@@ -94,13 +96,3 @@ function ban_account(element){
 function add_notice(alert, string){
     return '<div class="alert ' + alert + '" role="alert"><strong>' + string + '</strong></div>';
 }
-/*
-button.onclick = function(){
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function(){
-    modal.style.display = "none";
-  };
-  xmlhttp.open("GET", "?url=Home/update_user/", true);
-  xmlhttp.send();
-  
-};*/

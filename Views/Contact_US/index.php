@@ -155,7 +155,48 @@
                 </div>
             </div>
         </div> 
-
+        <?php
+        echo
+            "<div id='myModal' class='modal'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <h2>Thư phản hồi</h2>
+                        <span class='close'>&times;</span>
+                    </div>
+                    <div class='modal-body'>
+                        <div class='row'>
+                            <div class='col-12'>
+                            <div class='row'>
+                                <div class='col-4'>Gửi đến: </div>
+                                <div class='col-8'>
+                                    <input type='text' name='name' value='' disabled>
+                                </div>
+                            </div>
+                            </div>
+                            <div class='col-12'>
+                                <div class='row'>
+                                    <div class='col-4'>Tiêu đề: </div>
+                                    <div class='col-8'>
+                                        <input type='text' name='numberphone' value=''>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-12'>
+                                <div class='row'>
+                                    <div class='col-4'>Nội dung: </div>
+                                    <div class='col-8'>
+                                        <textarea name='content' value='' required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type='button' class='btn btn-primary' onclick='sendMessage(this)'>Gửi thư</button>
+                        </div>
+                    </div>
+                </div>
+            </div>";
+        ?>
+        <div id="notice"></div>
+        
         <?php require_once "Views/footer/index.php";?>
         <script src="Views/JS/contact.js"></script>
     </body>

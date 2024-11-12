@@ -1,10 +1,18 @@
 var list_combo = document.getElementsByClassName("card");
+		forms = document.querySelectorAll('.needs-validation'),
+		modal = document.getElementById("addCombo-modal"),
+		btn = document.getElementById("addCombo-btn"),
+		span = document.getElementsByClassName("close-modal-addc"),
+		day_str = new Date(),
+		xmlhttp = new XMLHttpRequest(),
+		checked = element.parentNode.parentNode.getElementsByClassName("btn-group")[0].getElementsByTagName("input"),
+		index_cycle = "";
+
 for (let index = 0; index < list_combo.length; index++) {
 	list_combo[index].value = list_combo[index].getElementsByTagName("span")[0].innerText;
 	list_combo[index].getElementsByTagName("span")[0].remove();
 }
 
-var forms = document.querySelectorAll('.needs-validation')
 Array.prototype.slice.call(forms)
 	.forEach(function(form) {
 		form.addEventListener('submit', function(event) {
@@ -26,10 +34,6 @@ function add_combo(element) {
 		}, 1500);
 		return;
 	}
-	var day_str = new Date();
-	var xmlhttp = new XMLHttpRequest();
-	var checked = element.parentNode.parentNode.getElementsByClassName("btn-group")[0].getElementsByTagName("input");
-	var index_cycle = "";
 	for (let index = 0; index < checked.length; index++) {
 		if (checked[index].checked == true) {
 			index_cycle = element.parentNode.parentNode.getElementsByClassName("btn-group")[0].getElementsByTagName("label")[index].innerText;
@@ -93,11 +97,6 @@ document.getElementById("add_cycle_Btn").onclick = function() {
 		form.style.display = "block";
 	}
 }
-
-var modal = document.getElementById("addCombo-modal");
-var btn = document.getElementById("addCombo-btn");
-var span = document.getElementsByClassName("close-modal-addc")[0];
-
 
 if (btn) {
 	btn.onclick = function() {
