@@ -176,5 +176,10 @@
 
         <?php require_once("Views/footer/index.php");?> 
         <script src="Views/JS/home.js"></script>
+        <script>
+            document.querySelector("#navbar > nav > div.login-button > div > button").onclick = function() {
+                change_show();
+            }
+        </script>
     </body>
 </html>

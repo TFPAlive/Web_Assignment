@@ -28,7 +28,7 @@
                     <div class="tab-filter active-filter" onclick="filterSelection('all')"> All</div> 
                     <?php 
                     if (empty($data["cate"])) {echo "empty cate";} 
-                    else {foreach ($data["cate"] as $row) {echo "<div class='tab-filter' onclick='filterSelection('" . $row["cate"] . "')'>" .$row["cate"] ."</div>";}} 
+                    else {foreach ($data["cate"] as $row) {echo "<div class=\"tab-filter\" onclick=\"filterSelection('" . $row["cate"] . "')\">" . $row["cate"] ."</div>";}} 
                     ?>
                 </div>
                 <div class='form-sort'>
@@ -107,9 +107,10 @@
                                         <label for='validationCustom04' class='form-label'></label>
                                         <select name='category' class='form-select' id='validationCustom04' required=''>
                                             <option selected='' disabled='' value=''>Chọn loại</option>
-                                            <option value='Shirt'>Áo</option>
-                                            <option value='Trousers'>Quần</option>
-                                            <option value='Accessories'>Phụ kiện</option>
+                                            <option value='PC Gaming'>PC Gaming</option>
+                                            <option value='Laptop Gaming'>Laptop Gaming</option>
+                                            <option value='Console'>Console</option>
+                                            <option value='Accessories'>Accessories</option>
                                         </select>
                                         <div class='invalid-feedback'> Vui lòng chọn loại. </div>
                                     </div>
@@ -125,17 +126,17 @@
             
             <div class="container-fluid">
                 <div class="list-product">
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"> 
+                    <div class="grid-product"> 
                         <?php if (empty($data["product"])) {echo "empty product";} 
                         else {
                             $count = 0;
                             foreach ($data["product"] as $row) {
                                 echo 
-                                    "<div class='col filterDiv " . $row["cate"] ."'>
+                                    "<div class='grid-item filterDiv " . $row["cate"] ."'>
                                         <div class='card'>
-                                            <a href='?url=Home/Item/" . $row["id"] ."/'>
-                                                <img src='" . $row["img"] . "'class='card-img-top' alt='card-grid-image'/>
-                                            </a>
+                                                <a class='img-holder' href='?url=Home/Item/" . $row["id"] ."/'>
+                                                    <img src='" . $row["img"] . "'class='card-img-top' alt='card-grid-image'/>
+                                                </a>
                                             <div class='card-body'>
                                                 <h5 class='card-title'>" . $row["name"] . "</h5>
                                                 <p class='card-text each-item-price fw-bold fs-5'>" . $row["price"] . "đ</p>

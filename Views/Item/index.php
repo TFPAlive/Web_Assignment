@@ -153,21 +153,22 @@
                                                             <label class='col-lg-4' for='category'>Loại:</label>
                                                             <div class='col-lg-8'>
                                                                 <select id='category' name='category'>
-                                                                <option selected='' disabled='' value='Shirt'"; 
-                            if ($row_product["cate"] == "Shirt") echo "selected>Áo</option> <option value='Trousers'"; 
-                            if ($row_product["cate"] == "Trousers") echo "selected>Quần</option> <option value='Accessories'"; 
-                            if ($row_product["cate"] == "Accessories") echo 
-                                                                            "selected>Phụ kiện</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class='btn-conf-edit'>
-                                                                    <button type='submit'>Xác nhận</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>";
+                                                                "; 
+                            if ($row_product["cate"] == "PC Gaming") echo "<option selected='' disabled='' value='PC Gaming' selected>PC Gaming</option>"; 
+                            if ($row_product["cate"] == "Laptop Gaming") echo "<option value='Laptop Gaming' selected>Laptop Gaming</option>"; 
+                            if ($row_product["cate"] == "Console") echo "<option value='Console' selected>Console</option>"; 
+                            if ($row_product["cate"] == "Accessories") echo  "<option value='Accessories' selected>Accessories</option>";
+                            echo 
+                                "</select>
+                            </div>
+                        </div>
+                        <div class='btn-conf-edit'>
+                            <button type='submit'>Xác nhận</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>";
                             }
                             ?> 
                         </div>
@@ -176,7 +177,7 @@
                 <div class="bottom">
                     <h2>Sản phẩm tương tự</h2>
                     <div class="related-items">
-                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4"> 
+                        <div class="grid-product"> 
                             <?php
                             if(empty($data["cate_product"])) echo "empty product";
                             else {
@@ -184,7 +185,7 @@
                                     echo 
                                         "<div class='col'>
                                             <div class='card'>
-                                                <a href='?url=Home/Item/" . $row["id"] . "'>
+                                                <a class='img-holder' href='?url=Home/Item/" . $row["id"] . "'>
                                                     <img src='" . $row["img"] . "' class='card-img-top' alt='card-grid-image' />
                                                 </a>
                                                 <div class='card-body'>

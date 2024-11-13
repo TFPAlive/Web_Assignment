@@ -5,7 +5,7 @@ var list_combo = document.getElementsByClassName("card");
 		span = document.getElementsByClassName("close-modal-addc"),
 		day_str = new Date(),
 		xmlhttp = new XMLHttpRequest(),
-		checked = element.parentNode.parentNode.getElementsByClassName("btn-group")[0].getElementsByTagName("input"),
+		//checked = element.parentNode.parentNode.getElementsByClassName("btn-group")[0].getElementsByTagName("input"),
 		index_cycle = "";
 
 for (let index = 0; index < list_combo.length; index++) {
@@ -26,20 +26,6 @@ Array.prototype.slice.call(forms)
 
 
 function add_combo(element) {
-	if (element.parentNode.parentNode.getElementsByTagName("select")[0].value == "Chọn chu kì gửi") {
-		document.getElementById("notice").innerHTML = add_notice("fail", "Bạn chưa chọn chu kì");
-		document.getElementsByClassName("alert")[0].style.display = "block";
-		setTimeout(function() {
-			document.getElementsByClassName("alert")[0].style.opacity = 0;
-		}, 1500);
-		return;
-	}
-	for (let index = 0; index < checked.length; index++) {
-		if (checked[index].checked == true) {
-			index_cycle = element.parentNode.parentNode.getElementsByClassName("btn-group")[0].getElementsByTagName("label")[index].innerText;
-			break;
-		}
-	}
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			if (this.responseText != "null") {
@@ -85,17 +71,6 @@ function remove_combo(cid, element) {
 	}
 	xmlhttp.open("GET", "?url=Home/delete_combo/" + cid + "/", true);
 	xmlhttp.send();
-}
-
-document.getElementById("add_cycle_Btn").onclick = function() {
-	var form = document.getElementById("add_cycle");
-	if (form.style.display == "") {
-		form.style.display = "block";
-	} else if (form.style.display == "block") {
-		form.style.display = "none";
-	} else if (form.style.display == "none") {
-		form.style.display = "block";
-	}
 }
 
 if (btn) {

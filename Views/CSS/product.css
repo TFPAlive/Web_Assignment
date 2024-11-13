@@ -191,7 +191,7 @@
   padding: 12px 5px;
   cursor: pointer;
   font-size: 1.2rem;
-  width: 8rem;
+  width: 10rem;
 }
 
 .company-product .tab-filter:hover {
@@ -305,4 +305,25 @@
   .company-product .header-product form select {
     width: 5rem;
   }
+}
+
+.img-holder {
+  display: flex;
+  width: 400px;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-holder img {
+  max-width: 400px;
+  max-height: 400px; 
+  width: 100%;
+  height: auto;
+}
+
+.grid-product {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
+  justify-content: space-around;
 }

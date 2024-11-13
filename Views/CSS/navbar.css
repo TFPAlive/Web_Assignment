@@ -145,8 +145,7 @@ nav .form-1 {
   nav ul {
     position: absolute;
     right: 0;
-    height: 40vh;
-    top: 8vh;
+    top: 60px;
     background-color: #16697a;
     display: flex;
     flex-direction: column;
@@ -183,10 +182,6 @@ nav .form-1 {
 }
 
 @media (max-width: 850px) {
-  .nav-links {
-    height: 45vh;
-  }
-
   nav h1 {
     margin-left: 0.5rem;
   }

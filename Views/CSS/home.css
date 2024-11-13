@@ -325,12 +325,18 @@
 .featured .product .img-container {
   position: relative;
   cursor: pointer;
+  display: flex;
+  width: 300px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
 }
 
 .featured .product .img-container img {
-  object-fit: cover;
-  height: 100%;
+  max-width: 300px;
+  max-height: 300px; 
   width: 100%;
+  height: auto;
 }
 
 .featured .product .bottom {

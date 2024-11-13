@@ -31,8 +31,12 @@ const navSlide = () => {
 }
 
 function change_show(){
-    if(document.querySelector("#menu").classList.contains('show')) {document.querySelector("#menu").classList.remove('show');}
-    else {document.querySelector("#menu").classList.add('show');}
+    if(document.querySelector("#menu").classList.contains('show')) {
+        document.querySelector("#menu").classList.remove('show');
+    }
+    else {
+        document.querySelector("#menu").classList.add('show');
+    }
 }
 
 navSlide();

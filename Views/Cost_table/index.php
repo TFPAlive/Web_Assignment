@@ -27,8 +27,6 @@
             <div class='add-combo-btn' style='text-align: left; margin-bottom: 2rem;'>
                 <button type='button' class='btn btn-success' id='addCombo-btn' style='width: 8rem;'>
                     <i class='fas fa-plus'></i> Thêm gói </button>
-                <button id='add_cycle_Btn' type='button' class='btn btn-success' style='width: 10rem; margin-left: 2rem;'>
-                    <i class='fas fa-plus'></i> Thêm chu kì </button>
             </div>
             <form id='add_cycle' action='?url=Home/add_cycle' method='POST'>
                 <div class='row'>
@@ -55,65 +53,41 @@
                                         <h5 class='mb-0 fw-bold'>" . $row["name"] . "</h5>
                                     </div>
                                     <div class='card-body'>
-                                        <h3 class='text-warning mb-2'>" . $row["price"] . "/tháng</h3>
+                                        <h3 class='text-warning mb-2'>" . $row["price"] . "VND</h3>
                                         <h6>Mỗi hộp bao gồm: </h6>
                                         <ol class='list-group list-group-numbered'>";
                     foreach($row["product"] as $product) {echo "<li class='list-group-item'>" . $product["name"] . "</li>";}
                     echo        
-                        "<p>Chọn kích cỡ</p>
-                        <div class='btn-group'role='group'aria-label='Basic radio toggle button group'>
-                            <input type='radio'class='btn-check'name='btnGroupRadio'id='btnRadio1-" . $row['id'] ."'autocomplete='off'checked=''>
-                            <label class='btn btn-outline-secondary'for='btnRadio1-" . $row['id'] ."'>S</label>
-                            <input type='radio'class='btn-check'name='btnGroupRadio'id='btnRadio2-" . $row['id'] ."'autocomplete='off'>
-                            <label class='btn btn-outline-secondary'for='btnRadio2-" . $row['id'] ."'>M</label>
-                            <input type='radio'class='btn-check'name='btnGroupRadio'id='btnRadio3-" . $row['id'] ."'autocomplete='off'>
-                            <label class='btn btn-outline-secondary'for='btnRadio3-" . $row['id'] ."'>L</label>
-                            <input type='radio'class='btn-check'name='btnGroupRadio'id='btnRadio4-" . $row['id'] ."'autocomplete='off'>
-                            <label class='btn btn-outline-secondary'for='btnRadio4-" . $row['id'] ."'>XL</label>
-                            <input type='radio'class='btn-check'name='btnGroupRadio'id='btnRadio5-" . $row['id'] ."'autocomplete='off'>
-                            <label class='btn btn-outline-secondary'for='btnRadio5-" . $row['id'] ."'>XXL</label>
+                        "<div class='card-footer d-flex justify-content-between py-3'>
+                            <div>
+                                <button type='button' class='btn btn-danger' id='deleteCombo-btn' data-bs-toggle='modal' data-bs-target='#delcomboModal-" .$count . "'>
+                                    <i class='fas fa-trash'></i> Xóa
+                                </button>
+                            </div>
+                            <div>
+                                <button type='button' class='btn btn-success' id='updateCombo-btn-" . $row['id'] ."' value = '". $row['id']. "' onClick = 'update_combo(this.value)'>
+                                    <i class='fas fa-edit'></i> Chỉnh sửa
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div class='card-footer d-flex justify-content-between py-3'>
-                        <select class='form-select-sm'aria-label='Small select'>
-                            <option selected='0'>Chọn chu kì gửi</option>
-                        ";
-                    $i = 1;
-                    foreach($data["cycle"] as $row1) {
-                        echo "<option value='". $i . "'>Gửi mỗi ". $row1["cycle"] . "</option>";
-                        $i += 1;
-                    }
-                    echo 
-                        "</select>
-                        <div>
-                            <button type='button' class='btn btn-danger' id='deleteCombo-btn' data-bs-toggle='modal' data-bs-target='#delcomboModal-" .$count . "'>
-                                <i class='fas fa-trash'></i> Xóa
-                            </button>
-                        </div>
-                        <div>
-                            <button type='button' class='btn btn-success' id='updateCombo-btn-" . $row['id'] ."' value = '". $row['id']. "' onClick = 'update_combo(this.value)'>
-                                <i class='fas fa-edit'></i> Chỉnh sửa
-                            </button>
+                </section>
+                <div class='modal fade' id='delcomboModal-" .$count . "' tabindex='-1' aria-labelledby='delcomboModalLabel-" .$count . "' aria-hidden='true'>
+                    <div class='modal-dialog modal-dialog-centered'>
+                        <div class='modal-content'>
+                            <div class='modal-header'>
+                                <h5 class='modal-title' id='delcomboModalLabel-" .$count . "'>Xác nhận</h5>
+                                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                            </div>
+                            <div class='modal-body'> Bạn có chắc chắn muốn xóa gói này </div>
+                            <div class='modal-footer'>
+                                <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Đóng</button>
+                                <button type='button' class='btn btn-primary' data-bs-dismiss='modal' onclick='remove_combo(" . (int)$row["id"] . ", this)'>Xác nhận</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <div class='modal fade' id='delcomboModal-" .$count . "' tabindex='-1' aria-labelledby='delcomboModalLabel-" .$count . "' aria-hidden='true'>
-                <div class='modal-dialog modal-dialog-centered'>
-                    <div class='modal-content'>
-                        <div class='modal-header'>
-                            <h5 class='modal-title' id='delcomboModalLabel-" .$count . "'>Xác nhận</h5>
-                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                        </div>
-                        <div class='modal-body'> Bạn có chắc chắn muốn xóa gói này </div>
-                        <div class='modal-footer'>
-                            <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Đóng</button>
-                            <button type='button' class='btn btn-primary' data-bs-dismiss='modal' onclick='remove_combo(" . (int)$row["id"] . ", this)'>Xác nhận</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>";  
+            </div>";  
                     $count += 1;
                     echo 
                         "<div id='updateCombo-modal-" . $row['id']. "' class='add-combo-modal'>
@@ -146,14 +120,12 @@
                                                         </div>
                                                     </div>
                                                     <div class='row'>
-                                                        <label class='col-lg-4' for='c-shirt'>
-                                                    Áo:
-                                                    </label>
+                                                        <label class='col-lg-4' for='c-shirt'>PC/Laptop:</label>
                                                         <div class='col-lg-8'>
                                                             <select id='c-shirt' name='c-shirt'>
-                                                                <option selected disabled>Chọn áo cho combo</option>";
+                                                                <option selected disabled>Chọn PC/Laptop cho combo</option>";
                     foreach($data["product"] as $row1) {
-                        if($row1["cate"] == "Shirt") {
+                        if($row1["cate"] == "PC Gaming" || $row1["cate"] == "Laptop Gaming") {
                             echo "<option value='" . $row1["id"] . "'";
                             foreach($row["product"] as $row2) {if($row1["name"] == $row2["name"]) echo " selected";} 
                             echo">" . $row1["name"] . "</option>";
@@ -164,12 +136,12 @@
                     </div>
                 </div>
                 <div class='row'>
-                    <label class='col-lg-4' for='c-pants'>Quần:</label>
+                    <label class='col-lg-4' for='c-pants'>Console:</label>
                     <div class='col-lg-8'>
                     <select id='c-pants' name='c-pants'>
-                        <option selected disabled>Chọn quần cho combo</option>";
+                        <option selected disabled>Chọn console cho combo</option>";
                     foreach($data["product"] as $row1) {
-                        if($row1["cate"] == "Trousers") {
+                        if($row1["cate"] == "Console") {
                             echo "<option value='" . $row1["id"] . "'";
                             foreach($row["product"] as $row2) {if($row1["name"] == $row2["name"]) echo " selected";} 
                             echo">" . $row1["name"] . "</option>";
@@ -223,34 +195,34 @@
                     </div>
                 </div>
                 <div class='row'>
-                    <label class='col-lg-4' for='c-shirt' class='form-control is-valid' id='validationSuccess' required> Áo: </label>
+                    <label class='col-lg-4' for='c-shirt' class='form-control is-valid' id='validationSuccess' required> PC/Laptop: </label>
                     <div class='col-lg-8'>
                         <label for='validationCustom04' class='form-label'></label>
                         <select id='c-shirt' name='c-shirt' class='form-select' id='validationCustom04' required=''>
-                            <option selected='' disabled='' value=''>Chọn áo cho combo</option>";
+                            <option selected='' disabled='' value=''>Chọn PC/Laptop cho combo</option>";
                     foreach($data["product"] as $row) {
-                        if($row["cate"] == "Shirt") {echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";}
+                        if($row["cate"] == "PC Gaming" || $row["cate"] == "Laptop Gaming") {echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";}
                     }
                     echo 
                         "</select>
                         <div class='invalid-feedback'>
-                            Vui lòng chọn áo.
+                            Vui lòng chọn PC/Laptop.
                         </div>
                     </div>
                 </div>
                 <div class='row'>
-                    <label class='col-lg-4' for='c-pants' class='form-control is-valid' id='validationSuccess' required>Quần:</label>
+                    <label class='col-lg-4' for='c-pants' class='form-control is-valid' id='validationSuccess' required>Console:</label>
                     <div class='col-lg-8'>
                         <label for='validationCustom05' class='form-label' ></label>
                         <select id='c-pants' name='c-pants' class='form-select' id='validationCustom05' required=''>
-                            <option selected='' disabled='' value=''>Chọn quần cho combo</option>";
+                            <option selected='' disabled='' value=''>Chọn console cho combo</option>";
                     foreach($data["product"] as $row){
-                        if($row["cate"] == "Trousers") {echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";}
+                        if($row["cate"] == "Console") {echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";}
                     }
                     echo 
                         "</select>
                         <div class='invalid-feedback'>
-                            Vui lòng chọn quần.
+                            Vui lòng chọn console.
                         </div>
                     </div>
                 </div>

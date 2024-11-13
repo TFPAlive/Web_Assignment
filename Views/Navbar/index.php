@@ -28,7 +28,7 @@
 
         <div class="login-button">
             <div class='dropdown'>
-                <button type='button' class='btn btn-primary dropdown-toggle' data-bs-toggle='dropdown' onclick='change_show()'>
+                <button type='button' class='btn btn-primary dropdown-toggle' data-bs-toggle='dropdown'>
                     <i class='fas fa-user'></i>
                 </button>
                 <ul id="menu" class='dropdown-menu'>
