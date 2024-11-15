@@ -154,7 +154,6 @@ class manager extends customer{
     public function get_all_user_info(){
         $query =    "SELECT `account`.`ID` AS `id`,
                             `account`.`FNAME` AS `name`, 
-                            `account`.`CMND` AS `cmnd`, 
                             `account`.`PHONE` AS `phone`, 
                             `account`.`ADDRESS` AS `add`,
                             `account`.`EMAIL` AS `mail`,
@@ -169,7 +168,7 @@ class manager extends customer{
         return mysqli_insert_id($this->connect);
     }
     public function update_new_combo($id, $name, $price){
-        $query = "UPDATE `combo` SET `combo`.`NAME` =\"" . $name . "\", `combo`.`COST`=" . (int)$price. " WHERE `combo`.`ID`=" .$id;
+        $query = "UPDATE `combo` SET `NAME` = '$name'  , `COST`= '$price' WHERE `ID`= $id";
         return mysqli_query($this->connect, $query);
     }
     public function add_product_in_combo($cbid, $shirt, $pant, $ass){
@@ -216,7 +215,6 @@ class manager extends customer{
                             `account`.`ADDRESS` AS `add`, 
                             `account`.`USERNAME` AS `username`, 
                             `account`.`IMG_URL` AS `img`, 
-                            `account`.`CMND` AS `cmnd`, 
                             `account`.`PWD` AS `pwd`, 
                             `account`.`EMAIL` AS `mail`
                     FROM    `account`

@@ -17,6 +17,7 @@
             <li><a href="?url=Home/Cost_table/">Bảng giá</a></li>
             <li><a href="?url=Home/News/">Tin tức</a></li>
             <li><a href="?url=Home/Contact_us/">Liên hệ</a></li>
+            <li><a href='?url=/Home/member_page/'>Thành viên</a></li>
         </ul>
 
         <form class="form">
@@ -25,18 +26,6 @@
             </div>
             <button class="btn btn-dark" type="button" onclick="search_item(this)"><i class="fas fa-search"></i></button>
         </form>
-
-        <div class="login-button">
-            <div class='dropdown'>
-                <button type='button' class='btn btn-primary dropdown-toggle' data-bs-toggle='dropdown'>
-                    <i class='fas fa-user'></i>
-                </button>
-                <ul id="menu" class='dropdown-menu'>
-                    <li><a class='dropdown-item' href='?url=/Home/member_page/'>Thành viên</a></li>
-                    <li><a class='dropdown-item' href='?url=/Home/logout/'>Thoát <i class='fas fa-sign-out-alt'></i></a></li>
-                </ul>
-            </div>
-        </div>
     </nav>
 </div>
 

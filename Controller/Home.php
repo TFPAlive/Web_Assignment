@@ -579,12 +579,6 @@ class Home extends Controller{
                         </div>";
                     echo "<div class=\"col-12\">
                             <div class=\"row\">
-                                <div class=\"col-4\"><strong>CMND/CCCD:</strong></div>
-                                <div class=\"col-8\"><h5>" . $row["cmnd"] .  "</h5></div>
-                            </div>
-                        </div>";
-                    echo "<div class=\"col-12\">
-                            <div class=\"row\">
                                 <div class=\"col-4\"><strong>SĐT:</strong></div>
                                 <div class=\"col-8\"><h5>" . $row["phone"] .  "</h5></div>
                             </div>

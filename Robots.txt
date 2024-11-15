@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /Views/CSS/*.css
+Disallow: /Views/JS/*.js
+Disallow: /Model/
+Disallow: /Function/
+Disallow: /Controller/
