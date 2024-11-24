@@ -99,37 +99,6 @@
                     </div>
                 </div>
             </div>
-            <div class="feature-news">
-                <h2><i class="far fa-hand-point-right"></i> Tin tức nổi bật <i class="fas fa-fire-alt"></i></h2>
-                <div class="container"> 
-                    <?php
-                    echo "<div class='attractive-new'>";
-                    for ($x = count($data["news"]) - 1; ($x >= count($data["news"])-3 && $x >= 0); $x--) {
-                        $row = $data["news"][$x];
-                        echo 
-                            "<div class='card'>
-                                <div class='card-body'>
-                                    <div class='row'>
-                                        <div class='bg-image bg-white col-md-12'>
-                                            <img src='"  . $row["imgurl"] . "' class='img-fluid rounded'>
-                                        </div>
-                                        <div class='row mb-3 col-md-12 mt-3'>
-                                            <div style='font-size:15px;'>" . $row["key"] . "</div>
-                                            <div style='font-size:15px;'>
-                                                <u class='text-decoration-none'>" . $row["time"] . "</u>
-                                            </div>
-                                        </div>
-                                        <a href='?url=Home/News_detail/". $row["id"] . "' class='text-dark text-decoration-none mb-3 mt-1'>
-                                            <div style='font-size:25px; font-weight:500;'>" . $row["title"] . "</div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>";
-                    }
-                    echo "</div>";
-                    ?> 
-                </div>
-            </div>
             <div class="featured">
                 <h2>
                     <i class="far fa-hand-point-right"></i> Sản phẩm được ưa chuộng <i class="fas fa-chart-line"></i>

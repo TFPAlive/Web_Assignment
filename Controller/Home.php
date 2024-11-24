@@ -3,23 +3,8 @@
 class Home extends Controller{
         function Home_page($user){
             $cus = $this->model($user);
-            $news = $cus->get_news();
-            $news_list = array();
-            foreach($news as $snews){
-                array_push($news_list, ([
-                    "id" => $snews["id"],
-                    "cid" => $snews["cid"],
-                    "key" => $snews["key"], 
-                    "time" => $snews["time"],
-                    "title" => $snews["title"],
-                    "content" => $snews["content"],
-                    "imgurl" => $snews["img_url"],
-                    "shortcontent" => $snews["short_content"],
-                    "comment" => $cus->get_comment_news($snews["id"])]));
-            }
             $this->view("Home_page", [
                 "user" => $user,
-                "news" => $news_list,
                 "collection" => $cus->get_swiper_slide_collection(), //$data["collection"] = $cus->get_swiper_slide_collection() 
                 "featured" => $cus->get_products("", "")
             ]);
@@ -62,122 +47,6 @@ class Home extends Controller{
                     "user" => $user
                 ]);
             }
-        }
-        function News($user){
-            $cus = $this->model($user);
-            $news = $cus->get_news();
-            $news_list = array();
-            foreach($news as $snews){
-                array_push($news_list, ([
-                    "id" => $snews["id"],
-                    "cid" => $snews["cid"],
-                    "key" => $snews["key"], 
-                    "time" => $snews["time"],
-                    "title" => $snews["title"],
-                    "content" => $snews["content"],
-                    "imgurl" => $snews["img_url"],
-                    "shortcontent" => $snews["short_content"]]));
-            }
-            $this->view("News", [
-                "news" => $news_list,
-                "user" => $user
-            ]);
-        }
-        function News_detail($user, $params){
-            $cus = $this->model($user);
-            $news = $cus->get_news();
-            $news_list = array();
-            foreach($news as $snews){
-                array_push($news_list, ([
-                    "id" => $snews["id"],
-                    "cid" => $snews["cid"],
-                    "key" => $snews["key"], 
-                    "time" => $snews["time"],
-                    "title" => $snews["title"],
-                    "content" => $snews["content"],
-                    "imgurl" => $snews["img_url"],
-                    "shortcontent" => $snews["short_content"],
-                    "comment" => $cus->get_comment_news($snews["id"])]));
-            }   
-            $this->view("News_detail", [
-                "news" => $news_list,
-                "user" => $user,
-                "params"=> $params[2]
-            ]);
-        }
-
-        function Post_news($user, $params){
-            if((int)$params[2] !== -1){
-                $cus = $this->model($user);
-                $news = $cus->get_news_by_nid((int)$params[2]);
-                $news_list = array();
-                foreach($news as $snews){
-                    array_push($news_list, ([
-                        "id" => $snews["id"],
-                        "cid" => $snews["cid"],
-                        "key" => $snews["key"], 
-                        "time" => $snews["time"],
-                        "title" => $snews["title"],
-                        "content" => $snews["content"],
-                        "imgurl" => $snews["img_url"],
-                        "shortcontent" => $snews["short_content"]]));
-                }   
-                $this->view("Post_news", [
-                    "news" => $news_list,
-                    "user" => $user,
-                    "params"=> $params[2]
-                ]);
-                $this->view("Post_news", []);
-            }
-            else {
-                $cus = $this->model($user);
-                $news_list = array();
-                array_push($news_list, ([
-                    "id" => "",
-                    "cid" => "",
-                    "key" => "", 
-                    "time" => "",
-                    "title" => "",
-                    "content" => "",
-                    "imgurl" => "",
-                    "shortcontent" => "" ]));
-                $this->view("Post_news", [
-                    "news" => $news_list,
-                    "user" => $user,
-                    "params"=> $params[2]
-                ]);
-                $this->view("Post_news", []);
-            }
-        }
-        function delete_news($user, $id){
-            echo (int)$id[2];
-            $this->model($user)->delete_news((int)$id[2]);
-        }
-
-        function add_comment_news($user, $array){
-            $this->model($user)->add_comment_news($array[2], $array[3], $_SESSION["id"]);
-        }
-
-        function insert_news($user){
-            if(isset($_POST["key"]) && isset($_POST["title"]) && isset($_POST["url"]) && isset($_POST["content"]) && isset($_POST["shortcontent"]))
-            {
-                if(isset($_FILES["e-image-url"])){
-                    if($_FILES['e-image-url']['name'][0] != ""){
-                        if(!file_exists("./Views/images/" . $_FILES["e-image-url"]['name'][0])){
-                            move_uploaded_file($_FILES['e-image-url']['tmp_name'][0], './Views/images/' . $_FILES['e-image-url']['name'][0]);
-                        }
-                        if((int)$_POST["url"] != -1){
-                            $this->model($user)->update_news((int)$_POST["url"], $_POST["key"], $_POST["title"], $_POST["content"], './Views/images/' . $_FILES['e-image-url']['name'][0], $_POST["shortcontent"]);
-                        }
-                        else{
-                            $this->model($user)->insert_news($_POST["key"], $_POST["title"], $_POST["content"], './Views/images/' . $_FILES['e-image-url']['name'][0], $_POST["shortcontent"]);
-                        }
-                        
-                    }
-                    
-                }
-            }
-            $this->News($user);
         }
 
         function Cost_table($user){
@@ -374,33 +243,16 @@ class Home extends Controller{
                         }
                         $this->model($user)->update_item_img($pid[2], './Views/images/' . $_FILES['e-image-url']['name'][0]);
                     }
-                    if($_FILES['e-image-url']['name'][1] != ""){
+                    for ($x = 1; $x < count($_FILES["e-image-url"]['name']); $x++) {
                         if(!file_exists("./Views/images/" . $_FILES["e-image-url"]['name'][1])){
-                            move_uploaded_file($_FILES['e-image-url']['tmp_name'][1], './Views/images/' . $_FILES['e-image-url']['name'][1]);
+                            move_uploaded_file($_FILES['e-image-url']['tmp_name'][$x], './Views/images/' . $_FILES['e-image-url']['name'][$x]);
                         }
-                        $this->model($user)->update_sub_img($sub_id[0]["id"], './Views/images/' . $_FILES['e-image-url']['name'][1]);
-                    }
-                    if($_FILES['e-image-url']['name'][2] != ""){
-                        if(!file_exists("./Views/images/" . $_FILES["e-image-url"]['name'][2])){
-                            move_uploaded_file($_FILES['e-image-url']['tmp_name'][2], './Views/images/' . $_FILES['e-image-url']['name'][2]);
-                        }
-                        $this->model($user)->update_sub_img($sub_id[1]["id"], './Views/images/' . $_FILES['e-image-url']['name'][2]);
-                    }
-                    if($_FILES['e-image-url']['name'][3] != ""){
-                        if(!file_exists("./Views/images/" . $_FILES["e-image-url"]['name'][3])){
-                            move_uploaded_file($_FILES['e-image-url']['tmp_name'][3], './Views/images/' . $_FILES['e-image-url']['name'][3]);
-                        }
-                        $this->model($user)->update_sub_img($sub_id[2]["id"], './Views/images/' . $_FILES['e-image-url']['name'][3]);
-                    }
-                    if($_FILES['e-image-url']['name'][4] != ""){
-                        if(!file_exists("./Views/images/" . $_FILES["e-image-url"]['name'][4])){
-                            move_uploaded_file($_FILES['e-image-url']['tmp_name'][4], './Views/images/' . $_FILES['e-image-url']['name'][4]);
-                        }
-                        $this->model($user)->update_sub_img($sub_id[3]["id"], './Views/images/' . $_FILES['e-image-url']['name'][4]);
+                        $this->model($user)->update_sub_img($sub_id[$x -1]["id"], './Views/images/' . $_FILES['e-image-url']['name'][$x]);
                     }
                 }
                 $this->model($user)->update_item_nope_img($pid[2], $_POST["name"], $_POST["price"], $_POST["description"], $_POST["remain"], $_POST["category"], $_POST["featured_product"]);  
             }
+            else {echo "Not Update";}
             $this->Item($user, $pid);
         }
         function delete_item($user, $array){

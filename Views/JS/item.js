@@ -110,6 +110,7 @@ if (!document.getElementById("edit-itemBtn") && document.getElementsByClassName(
 }
 
 function upload_pic(element) {
+	console.log("Changed")
 	var fileSelected = element.files;
 	if (fileSelected.length > 0) {
 		var fileToLoad = fileSelected[0];

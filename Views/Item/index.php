@@ -118,10 +118,7 @@
                                     "<div class='row'>
                                         <label class='col-lg-4' for='e-image-url-" . $count . "'>
                                             <i class='far fa-image'></i> Ảnh phụ thứ " . $count . ": </label>
-                                        <div class='col-lg-8'>
-                                            <img src='" . $row["img"] . "' alt='main_img' style='width: 50%; margin-bottom: 1rem;'>
-                                            <input type='file' id='e-image-url-" . $count . "' name='e-image-url[]' onchange='upload_pic(this)' hidden>
-                                        </div>
+                                        <div class='col-lg-8'><img src='" . $row["img"] . "' alt='main_img' style='width: 50%; margin-bottom: 1rem;'><input type='file' id='e-image-url-" . $count . "' name='e-image-url[]' onchange='upload_pic(this)' hidden></div>
                                     </div>";
                                 $count += 1;
                             }
@@ -142,24 +139,28 @@
                                     <label class='col-lg-4' for='featured_product'> Top sản phẩm: </label>
                                     <div class='col-lg-8'>
                                         <select id='featured_product' name='featured_product'>
-                                            <option value='0'"; 
-                            if ($row_product["top_item"] == 0) echo "selected>0</option> <option value='1'";
-                            if ($row_product["top_item"] == 1) echo 
-                                                                    "selected>1</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class='row'>
-                                                            <label class='col-lg-4' for='category'>Loại:</label>
-                                                            <div class='col-lg-8'>
-                                                                <select id='category' name='category'>
-                                                                "; 
-                            if ($row_product["cate"] == "PC Gaming") echo "<option selected='' disabled='' value='PC Gaming' selected>PC Gaming</option>"; 
-                            if ($row_product["cate"] == "Laptop Gaming") echo "<option value='Laptop Gaming' selected>Laptop Gaming</option>"; 
-                            if ($row_product["cate"] == "Console") echo "<option value='Console' selected>Console</option>"; 
-                            if ($row_product["cate"] == "Accessories") echo  "<option value='Accessories' selected>Accessories</option>";
-                            echo 
-                                "</select>
+                                            <option value='0'"; if ($row_product["top_item"] == 0) echo "selected"; 
+                                  echo">0</option>
+                                  <option value='1'"; if ($row_product["top_item"] == 1) echo "selected"; 
+                                  echo">1</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class='row'>
+                              <label class='col-lg-4' for='category'>
+                                Loại:
+                              </label>
+                              <div class='col-lg-8'>
+                                <select id='category' name='category'>
+                                  <option value='PC Gaming'"; if ($row_product["cate"] == "PC Gaming") echo "selected"; 
+                                  echo">PC Gaming</option>
+                                  <option value='Laptop Gaming'"; if ($row_product["cate"] == "Laptop Gaming") echo "selected"; 
+                                  echo">Laptop Gaming</option>
+                                  <option value='Console'"; if ($row_product["cate"] == "Console") echo "selected"; 
+                                  echo">Console</option>
+                                  <option value='Accessories'"; if ($row_product["cate"] == "Accessories") echo "selected"; 
+                                  echo">Accessories</option>
+                                </select>
                             </div>
                         </div>
                         <div class='btn-conf-edit'>

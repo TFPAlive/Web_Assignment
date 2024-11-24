@@ -86,31 +86,7 @@ class customer extends DB{
         return mysqli_query($this->connect, $query);
     }
     public function get_cmt_user_name($uid) {
-        $query = "SELECT `account`.FNAME AS \"uname\" FROM `account` WHERE `account`.`ID` = " . (int)$uid . ";";
-        return mysqli_query($this->connect, $query);
-    }
-    public function get_news(){
-        $query =    "SELECT `news`.`ID` as `id`,
-                            `news`.`CID` as `cid`, 
-                            `news`.`KEY` as `key`, 
-                            `news`.`TIME` as `time`,
-                            `news`.`TITLE` as `title`,  
-                            `news`.`CONTENT` as `content`, 
-                            `news`.`IMG_URL` as `img_url`, 
-                            `news`.`SHORT_CONTENT` as `short_content` 
-                    FROM `news`";
-        return mysqli_query($this->connect, $query);
-    }
-    function delete_news($id){
-        $query = "DELETE FROM `news` WHERE `news`.`id`= ".$id;
-        return mysqli_query($this->connect, $query);
-    }
-    public function get_comment_news($id){
-        $query = "SELECT `account`.`FNAME` as `name`,
-                         `comment_news`.`CONTENT` as `content`,
-                         `comment_news`.`TIME` as `time`
-                FROM `comment_news`, `account`
-                WHERE `comment_news`.`CID`=`account`.`ID` and `comment_news`.`NID` = " . $id;
+        $query = "SELECT `account`.`NAME` AS \"uname\" FROM `account` WHERE `account`.`ID` = " . (int)$uid . ";";
         return mysqli_query($this->connect, $query);
     }
     

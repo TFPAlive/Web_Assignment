@@ -25,8 +25,7 @@ class App{
         }
         $this->params = [];
         // Params
-        if(isset($_SESSION["user"]))array_push($this->params,$_SESSION["user"]); //member / manager
-        else{ $_SESSION["user"] = "customer"; array_push($this->params, "customer");}
+        array_push($this->params,'manager'); //member / manager
         if(!empty($arr)) array_push($this->params,$arr);
         call_user_func_array([$this->controller, $this->action], $this->params);
 
