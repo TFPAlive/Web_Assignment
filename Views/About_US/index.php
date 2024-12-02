@@ -28,23 +28,29 @@
 			<section class="pb-4 mt-3 mb-5">
 				<div class="row gx-5">
 					<div class="card col-md-6 mb-4">
-						<div class="card-header bg-white text-center py-3">
+						<div class="card-header text-center py-3">
 							<h5 class="mb-0 fw-bold">Điểm đánh giá của khách hàng</h5>
 							<h1 class="text-warning">87</h1>
 						</div>
-						<div class="progress mt-1" style="height: 25px">
-							<div class="progress-bar bg-secondary" role="progressbar" style="width: 93%; ">
-								<div class="d-flex justify-content-between ps-2">Điểm uy tín<div class="pe-2" style="display: inline-block !important;">93%</div></div>
+						<div class="progress-card">
+							<div class="progress mt-1" style="height: 25px">
+								<div class="progress-bar bg-secondary" role="progressbar" style="width: 93%; ">
+									<div class="d-flex justify-content-between ps-2">Điểm uy tín<div class="pe-2" style="display: inline-block !important;">93%</div></div>
+								</div>
 							</div>
 						</div>
-						<div class="progress mt-1" style="height: 25px">
-							<div class="progress-bar bg-secondary" role="progressbar" style="width: 80%; ">
-								<div class="d-flex justify-content-between ps-2">Điểm phù hợp<div class="pe-2" style="display: inline-block !important;">80%</div></div>
+						<div class="progress-card">
+							<div class="progress mt-1" style="height: 25px">
+								<div class="progress-bar bg-secondary" role="progressbar" style="width: 80%; ">
+									<div class="d-flex justify-content-between ps-2">Điểm phù hợp<div class="pe-2" style="display: inline-block !important;">80%</div></div>
+								</div>
 							</div>
 						</div>
-						<div class="progress mt-1 mb-2" style="height: 25px">
-							<div class="progress-bar bg-secondary" role="progressbar" style="width: 88%;">
-								<div class="d-flex justify-content-between ps-2">Điểm xu hướng<div class="pe-2" style="display: inline-block !important;">88%</div></div>
+						<div class="progress-card">
+							<div class="progress mt-1 mb-2" style="height: 25px">
+								<div class="progress-bar bg-secondary" role="progressbar" style="width: 88%;">
+									<div class="d-flex justify-content-between ps-2">Điểm xu hướng<div class="pe-2" style="display: inline-block !important;">88%</div></div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -52,7 +58,7 @@
 					<div class="col-md-6 mb-4">
 						<section>
 							<div class="card">
-								<div class="card-header bg-white text-center py-3">
+								<div class="card-header text-center py-3">
 									<h5 class="mb-2 text-warning">CHÚNG TÔI LẮNG NGHE BẠN! </h5>
 								</div>
 				
@@ -76,44 +82,36 @@
 						<div class="intro">
 							<h2 class="text-center">BÌNH LUẬN CỦA KHÁCH HÀNG</h2>
 						</div>
-						<div class="row people">
-							<div class="col-md-6 col-lg-4 item">
+						<div class="grid-product people">
+							<div class="grid-item item">
 								<div class="box">
 									<p class="description">
-										Cảm ơn Adidas đã tạo cơ hội cho mình được trải nghiệm sản phẩm với
-										mức giá ưu đãi, sản phẩm cực kì chất lượng, từ box
-										cho đến phần nhìn rồi đến lúc mặc, cực kì thoải mái, chất lượng vượt
-										mức giá và chắc chắn không hề đắt với những người đã đi làm.
-									.</p>
+									Cửa hàng bán PC này thật sự ấn tượng! Đội ngũ nhân viên rất chuyên nghiệp, họ sẵn sàng tư vấn và giúp đỡ khách hàng tìm ra sản phẩm phù hợp nhất với nhu cầu sử dụng. Không gian cửa hàng rộng rãi, thoải mái và có nhiều mẫu máy tính để trải nghiệm trực tiếp. Đặc biệt, các sản phẩm ở đây đều có giá cả hợp lý, đi kèm với chế độ bảo hành tốt. Nếu bạn đang tìm kiếm một chiếc PC chất lượng, đây chắc chắn là nơi đáng để ghé thăm!
+									</p>
 								</div>
-								<div class="author"><img class="rounded-circle" src="Views/images/huytehuy.jpeg">
-									<h5 class="name">Phạm Khánh Huy</h5>
+								<div class="author"><img class="rounded-circle" src="Views/images/Anh.jpg">
+									<h5 class="name">Đặng Thanh Anh</h5>
 								</div>
 							</div>
-							<div class="col-md-6 col-lg-4 item">
+							<div class="grid-item item">
 								<div class="box">
 									<p class="description">
-										Sản phẩm rất ưng ý. Đóng gói chuyên nghiệp. Phục Vụ
-										chuyên nghiệp là điều quan trọng nhất, thái độ phục vụ tốt sẽ làm
-										khách hàng hài lòng, và sẽ giới thiệu cho nhiều người.								
+									Quá trình giao hàng PC rất nhanh chóng và chuyên nghiệp! Tôi đặt hàng hôm trước và hôm sau đã nhận được sản phẩm. Nhân viên giao hàng tận tình, giúp tôi kiểm tra máy trước khi bàn giao. Mọi thứ đều trong tình trạng hoàn hảo, đúng như mô tả. Tôi rất hài lòng với dịch vụ này!						
 									</p>
 									<p>Chúc các bạn thành công hơn nữa..</p>
 								</div>
-								<div class="author"><img class="rounded-circle" src="Views/images/razirtran.jpeg">
-									<h5 class="name">Trần Khôi</h5>
+								<div class="author"><img class="rounded-circle" src="Views/images/Orion.jpg">
+									<h5 class="name">Orion Obe</h5>
 								</div>
 							</div>
-							<div class="col-md-6 col-lg-4 item">
+							<div class="grid-item item">
 								<div class="box">
 									<p class="description">
-										Mình đã mua set này về mặc thấy rất thích. Vải xịn, mặc thoáng mát,
-										không nóng nực. Sợi vải mềm, co giãn tốt. Còn quần thì dày, cho cảm
-										giác cao cấp, màu đẹp nữa. Đặc biệt giao cực nhanh luôn, hàng đóng
-										gọi đẹp và chỉn chu, mình rất thích. 
+									Giá cả của các mẫu PC ở cửa hàng này rất cạnh tranh và hợp lý với chất lượng sản phẩm. Tôi thấy có nhiều lựa chọn phù hợp với ngân sách khác nhau, từ những bộ máy cơ bản đến những cấu hình cao cấp. Đặc biệt, cửa hàng thường có các chương trình khuyến mãi hấp dẫn, giúp tiết kiệm chi phí cho khách hàng. Rất đáng để tham khảo.
 									</p>
 								</div>
-								<div class="author"><img class="rounded-circle" src="Views/images/thethanh.png">
-									<h5 class="name">Lê Thế Thành</h5>
+								<div class="author"><img class="rounded-circle" src="Views/images/UI_Card_Icon_101883.png">
+									<h5 class="name">Mafuu Chino</h5>
 								</div>
 							</div>
 						</div>

@@ -1,3 +1,7 @@
+body, .card {
+  background-color: black !important;
+  color: white !important;
+}
 * {
   margin: 0;
   padding: 0;
@@ -53,10 +57,9 @@
 }
 .body .paddingTD-100{
   padding: 100px 0;
-  background-color: rgba(245, 245, 245, 0.931);
 }
 .body .white{
-  background-color: white;
+  background-color: #3c3c3c;
 }
 .body iframe{
   width: 100%;

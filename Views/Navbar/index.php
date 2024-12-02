@@ -2,7 +2,7 @@
 
 <div id="navbar" class="sticky-top">
     <nav>
-        <h1><i class="fab fa-shopify"></i><a href="?url=Home/Home_page/">VCS</a></h1>
+        <h1><i><img src="Views/images/Icon.png" width="39" height="39"></i><a href="?url=Home/Home_page/">BPC</a></h1>
 
         <div class="burger">  
             <div class="line1"></div>

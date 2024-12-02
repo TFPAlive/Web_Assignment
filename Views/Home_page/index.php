@@ -33,28 +33,28 @@
                     <div class="swiper-container slider-1">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1344,c_limit/eaa7c01a-d1fc-4fae-80f9-0622bf8c74bb/nike-just-do-it.jpg" alt=""/>
+                                <img src="Views/images/1.jpg" alt=""/>
                                 <div class="content">
-                                    <h1 style="color: white;"> PEACE THROUGH <br/> ANY POSE</h1>
-                                    <p style="color: white;"> Nike Yoga Soul Festival Collection </p>
+                                    <h1 style="color: #ffc107;"> UNLOCK <br/> YOUR POTENTIAL</h1>
+                                    <p style="color: #ffc107;"> With Apple, HP, Lenovo, DELL, ACER, ASUS </p>
                                     <a href="?url=Home/Products/" style="color: white;">Buy Now</a>
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <img src="Views/images/Presentation2.png" alt="hero image"/>
+                                <img src="Views/images/2.png" alt="hero image"/>
                                 <div class="content">
-                                    <h1> Hỗ trợ đặt combo <br/>
+                                    <h1> Hỗ trợ tư vấn trực tiếp<br/>
                                         <span>20% off</span> tại cửa hàng
                                     </h1>
-                                    <p> Cung cấp các gói chứa đầy đủ một bộ sưu tập phù hợp với từng sở thích, tính cách </p>
+                                    <p style="color: white;"> Cung cấp các gói chứa đầy đủ một bộ sưu tập phù hợp với từng sở thích, tính cách </p>
                                     <a href="?url=Home/Products/">Mua ngay</a>
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <img src="Views/images/Presentation1.png" alt="hero image"/>
+                                <img src="Views/images/3.webp" alt="hero image"/>
                                 <div class="content">
                                     <h1>Đăng ký ngay</h1>
-                                    <p>Nhanh tay đăng ký tài khoản để nhận được nhiều ưu đãi hấp dẫn cũng như những trải nghiệm thú vị nhé!</p>
+                                    <p style="color: #ffc107;">Nhanh tay đăng ký tài khoản để nhận được nhiều ưu đãi hấp dẫn cũng như những trải nghiệm thú vị nhé!</p>
                                     <a href="?url=Home/Products/">Mua ngay</a>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
             </div>
             <div class="shop-collection">
                 <h2>
-                    <i class="far fa-hand-point-right"></i>Các sản phẩm của Shop <i class="far fa-heart"></i>
+                    <i class="far fa-hand-point-right"></i> Các sản phẩm của Shop <i class="far fa-heart"></i>
                 </h2>
                 <div class="container">
                     <div class="collection-layout"> 

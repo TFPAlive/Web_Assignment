@@ -1,6 +1,12 @@
+body {
+    background-color: black !important;
+    color: white !important;
+}
+
 .testimonials-clean {
-    color:#313437;
-    background-color:#eef4f7;
+    color:#ffc107;
+    background-color:#3c3c3c;
+    height: auto;
 }
 
 .testimonials-clean p {
@@ -38,12 +44,6 @@
 
 .testimonials-clean .item {
     margin-bottom:32px;
-}
-
-@media (min-width:768px) {
-    .testimonials-clean .item {
-        height:220px;
-    }
 }
 
 .testimonials-clean .item .box {
@@ -90,4 +90,31 @@
     float:left;
     margin-right:12px;
     margin-top:-5px;
+}
+
+.grid-product {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 45%));
+    justify-content: space-around;
+  }
+
+.card {
+    background-color: #4c4c4c !important;
+}
+
+.col-md-6.mb-4 {
+    padding: 0px !important;
+}
+
+.progress-card {
+    padding: 0 16px;
+}
+
+.col-md-6 {
+    width: calc(50% - 12px) !important;
+}
+
+.row {
+    justify-content: space-between;
+    margin: 0px !important;
 }

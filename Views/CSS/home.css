@@ -1,3 +1,8 @@
+body {
+  background-color: black !important;
+  color: white !important;
+}
+
 /* Hero */
 .hero {
   height: 100%;
@@ -39,7 +44,7 @@
 }
 
 .hero .row1 .content span {
-  color: #ffd60a;
+  color: #ffc107;
 }
 
 .hero .row1 .content p {
@@ -51,7 +56,7 @@
 .hero .row1 .content a {
   display: inline-block;
   color: white;
-  background-color: #ffd60a;
+  background-color: #ffc107;
   border-radius: 5px;
   padding: 0.7rem 2rem;
   margin-top: 2rem;
@@ -133,7 +138,7 @@
   padding: 0.5rem 0.7rem;
   border-radius: 5px;
   font-size: 1.5rem;
-  color: #ffd60a;
+  color: #ffc107;
   cursor: pointer;
 }
 
@@ -171,7 +176,7 @@
   margin-bottom: 2rem;
   text-align: center;
   font-weight: 500;
-  color: #ffd60a;
+  color: #ffc107;
 }
 
 .shop-collection .collection-layout {
@@ -206,7 +211,7 @@
 
 .shop-collection .shop-item .collection-content h3 {
   background-color: rgba(0, 0, 0, 0.8);
-  background-color: #ffd60a;
+  background-color: #ffc107;
   color: #fff;
   border-radius: 4rem;
   padding: 0.5rem 1.4rem;
@@ -220,15 +225,15 @@
   transition: all 300ms ease-in-out;
   font-size: 1.2rem;
   text-decoration: none;
-  color: #16697a;
+  color: #ffc107;
 }
 
-.shop-collection .shop-item .collection-content a:hover {
-  color: #ffd60a;
+.shop-collection .shop-item:hover .collection-content h3:hover {
+  color: #ffc107;
 }
 
 .shop-collection .shop-item:hover .collection-content h3 {
-  background-color: #16697a;
+  background-color: #3c3c3c;
 }
 
 .shop-collection .shop-item:hover img {
@@ -302,7 +307,7 @@
   font-weight: 500;
   margin-top: 5rem;
   margin-bottom: 2rem;
-  color: #ffd60a;
+  color: #ffc107;
 }
 
 /* PRODUCTS */
@@ -315,7 +320,7 @@
   font-weight: 500;
   margin-top: 5rem;
   margin-bottom: 2rem;
-  color: #ffd60a;
+  color: #ffc107;
 }
 
 .featured .product {
@@ -335,7 +340,7 @@
 .featured .product .img-container img {
   max-width: 300px;
   max-height: 300px; 
-  height: auto;
+  width: 100%;
 }
 
 .featured .product .bottom {
@@ -348,15 +353,15 @@
   font-weight: 600;
   font-size: 1.2rem;
   text-decoration: none;
-  color: #000;
+  color: #fff;
 }
 
 .featured .product .bottom a:hover {
-  color: #ffd60a;
+  color: #ffc107;
 }
 
 .featured .product .bottom span {
-  color: #ffd60a;
+  color: #ffc107;
   font-size: 1.5rem;
   font-weight: 600;
 }
@@ -365,7 +370,7 @@
   position: absolute;
   right: 0;
   bottom: 1rem;
-  background-color: #ffd60a;
+  background-color: #ffc107;
   color: #fff;
   border-radius: 50%;
   padding: 1.2rem 1.4rem;
@@ -428,4 +433,8 @@
   .prodouct-layout {
     grid-template-columns: 1fr;
   }
+}
+
+.swiper-slide {
+  height: auto !important;
 }

@@ -1,3 +1,8 @@
+body, .card {
+  background-color: black !important;
+  color: white !important;
+}
+
 /* Style add item modal */
 .add-item-modal {
   display: none; /* Hidden by default */
@@ -24,14 +29,14 @@
 
 .close-modal-add:hover,
 .close-modal-add:focus {
-  color: #ffd60a;
+  color: #ffc107;
   text-decoration: none;
   cursor: pointer;
 }
 /* Modal Header */
 .addItem-modal-header {
   padding: 3px 16px;
-  background-color: #16697a;
+  background-color: #3c3c3c;
   color: white;
 }
 
@@ -48,13 +53,13 @@
 .addItem-modal-body i {
   cursor: pointer;
   font-size: 1.5rem;
-  color: #ffd60a;
+  color: #ffc107;
 }
 
 .addItem-modal-body input, .addItem-modal-body textarea, .addItem-modal-body select{
   padding: 0.5rem;
   width: 100%;
-  border: 1px solid #ffd60a;
+  border: 1px solid #ffc107;
   border-radius: 0.2rem;
   outline: none;
   margin-bottom: 0.5rem;
@@ -70,14 +75,14 @@
 
 .addItem-modal-body button {
   padding: 0.5rem 1rem;
-  background-color: #ffd60a;
+  background-color: #ffc107;
   border: none;
   border-radius: 0.5rem;
   color: #fff;
 }
 
 .addItem-modal-body button:hover {
-  background-color: #16697a;
+  background-color: #3c3c3c;
   transition: all .3s ease-in-out;
 }
 
@@ -147,28 +152,28 @@
   display: inline-block;
   padding: 0.5rem 2rem;
   border-radius: 4rem;
-  background-color: #ffd60a;
+  background-color: #ffc107;
   color: #fff;
   transition: all 300ms ease-in-out;
   align-items: baseline;
 }
 
 .company-product .header-product form button:hover {
-  background-color: #16697a;
+  background-color: #3c3c3c;
 }
 /*****************************************/
 .company-product .header-product .form-sort button {
   padding: 0.5rem 1rem;
   margin-right: 3rem;
   margin-top: 0.5rem;
-  background-color: #ffd60a;
+  background-color: #ffc107;
   border: none;
   border-radius: 2rem;
   color: #fff;
 }
 
 .company-product .header-product .form-sort button:hover {
-  background-color: #16697a;
+  background-color: #3c3c3c;
   transition: all .3s ease-in-out;
 }
 /*****************************************/
@@ -195,23 +200,24 @@
 }
 
 .company-product .tab-filter:hover {
-  border-bottom: 4px solid #ffd60a;
+  border-bottom: 4px solid #ffc107;
   transition: .3s;
 }
 
 .company-product .tab-filter.active-filter {
-  border-bottom: 4px solid #ffd60a;
+  border-bottom: 4px solid #ffc107;
 }
 
 .company-product .card .btn {
-    background-color: #ffd60a;
-    border-color: #ffd60a;
+    background-color: #ffc107;
+    border-color: #ffc107;
     border-radius: 1rem;
 }
 
 .company-product .card .btn:hover {
-    background-color: #16697a;
-    border-color: #16697a ;
+    background-color: #3c3c3c;
+    border-color: #3c3c3c ;
+    color: #ffc107;
 }
 
 /* Style quantity plus and minus */
@@ -228,12 +234,12 @@
 
 .company-product .list-product .quantity-section .fas{
   font-size: 2.2rem;
-  color: #ffd60a;
+  color: #ffc107;
   cursor: pointer;
 }
 
 .company-product .list-product .quantity-section .fas:hover {
-  color: #16697a;
+  color: #3c3c3c;
 }
 
 /* Style pagination */
@@ -264,8 +270,8 @@
 }
 
 .pagination span:hover {
-  border: 1px solid #16697a;
-  background-color: #16697a;
+  border: 1px solid #3c3c3c;
+  background-color: #3c3c3c;
   color: #fff;
 }
 

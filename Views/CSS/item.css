@@ -1,3 +1,7 @@
+body, .card {
+  background-color: black !important;
+  color: white !important;
+}
 /* Style add item modal */
 .edit-item-modal {
   display: none; /* Hidden by default */
@@ -24,14 +28,14 @@
 
 .close-modal-edit:hover,
 .close-modal-edit:focus {
-  color: #ffa62b;
+  color: #ffc107;
   text-decoration: none;
   cursor: pointer;
 }
 /* Modal Header */
 .editItem-modal-header {
   padding: 3px 16px;
-  background-color: #16697a;
+  background-color: #3c3c3c;
   color: white;
 }
 
@@ -48,7 +52,7 @@
 .editItem-modal-body i {
   cursor: pointer;
   font-size: 1.5rem;
-  color: #ffa62b;
+  color: #ffc107;
 }
 
 .editItem-modal-body input,
@@ -56,7 +60,7 @@
 .editItem-modal-body select {
   padding: 0.5rem;
   width: 100%;
-  border: 1px solid #ffa62b;
+  border: 1px solid #ffc107;
   border-radius: 0.2rem;
   outline: none;
   margin-bottom: 0.5rem;
@@ -68,14 +72,14 @@
 
 .editItem-modal-body button {
   padding: 0.5rem 1rem;
-  background-color: #ffa62b;
+  background-color: #ffc107;
   border: none;
   border-radius: 0.5rem;
   color: #fff;
 }
 
 .editItem-modal-body button:hover {
-  background-color: #16697a;
+  background-color: #3c3c3c;
   transition: all 0.3s ease-in-out;
 }
 
@@ -106,14 +110,14 @@
 #edit-itemBtn {
   padding: 0.5rem 1rem;
   margin: 0 3rem 0.5rem 0;
-  background-color: #ffa62b;
+  background-color: #ffc107;
   border: none;
   border-radius: 0.5rem;
   color: #fff;
 }
 
 #edit-itemBtn:hover {
-  background-color: #16697a;
+  background-color: #3c3c3c;
   transition: all 0.3s ease-in-out;
 }
 /****************************/
@@ -157,7 +161,7 @@
 }
 
 .product-item .right-content .rating-star {
-  color: #ffa62b;
+  color: #ffc107;
 }
 
 .product-item .right-content .rating-star a {
@@ -179,7 +183,7 @@
   margin: 0 0 1rem 1rem;
   padding: 0.5rem;
   width: 5rem;
-  border: 1px solid #16697a;
+  border: 1px solid #3c3c3c;
   outline: none;
 }
 
@@ -193,13 +197,13 @@
 
 .product-item .right-content .addtocart-btn button {
   width: 50%;
-  background-color: #ffa62b;
-  border-color: #ffa62b;
+  background-color: #ffc107;
+  border-color: #ffc107;
 }
 
 .product-item .right-content .addtocart-btn button:hover {
-  background-color: #16697a;
-  border-color: #16697a;
+  background-color: #3c3c3c;
+  border-color: #3c3c3c;
 }
 
 /* Style quantity plus and minus */
@@ -217,12 +221,12 @@
 
 .product-item .right-content .quantity-section .fas {
   font-size: 2.2rem;
-  color: #ffa62b;
+  color: #ffc107;
   cursor: pointer;
 }
 
 .product-item .right-content .quantity-section .fas:hover {
-  color: #16697a;
+  color: #3c3c3c;
 }
 
 /* Style bottom (related item) */
@@ -264,7 +268,7 @@
 
 .product-item .bottom .comment-rating .star-numbers .sum-of-star span {
   font-size: 1rem;
-  color: #ffa62b;
+  color: #ffc107;
 }
 
 .product-item .bottom .comment-rating .star-numbers .according-to {
@@ -278,13 +282,13 @@
 }
 
 .product-item .bottom .comment-rating .filter-rating button {
-  background-color: white;
-  border-color: #f2f2f2;
+  background-color: #3c3c3c;
+  border-color: #3c3c3c;
   color: gray;
 }
 
 .product-item .bottom .comment-rating .filter-rating .fas {
-  color: #ffa62b;
+  color: #ffc107;
 }
 
 .product-item .bottom .comment-rating .filter-rating button:hover .fas {
@@ -292,14 +296,14 @@
 }
 
 .product-item .bottom .comment-rating .filter-rating button:hover {
-  background-color: #ffa62b;
-  border-color: #ffa62b;
+  background-color: #ffc107;
+  border-color: #ffc107;
   color: #fff;
 }
 
 .product-item .bottom .comment-rating .filter-rating button.current-btn {
-  background-color: #ffa62b;
-  border-color: #ffa62b;
+  background-color: #ffc107;
+  border-color: #ffc107;
   color: #fff;
 }
 
@@ -308,17 +312,17 @@
 }
 
 .product-item .bottom .comment-rating .filter-rating button.current-btn:hover {
-  background-color: #16697a;
-  border-color: #16697a;
+  background-color: #3c3c3c;
+  border-color: #3c3c3c;
 }
 
 .product-item .bottom .comment-rating .filter-rating select {
   padding: 0.4rem 0.5rem;
   width: fit-content;
-  border: 1px solid #ffa62b;
+  border: 1px solid #ffc107;
   outline: none;
-  color: #ffa62b;
-  background-color: #f2f2f2;
+  color: #ffc107;
+  background-color: #3c3c3c;
   border-radius: 0.2rem;
   margin-right: 3.5rem;
 }
@@ -330,7 +334,7 @@
 }
 
 .product-item .bottom .comment-script .card-body {
-  background-color: #f2f2f2;
+  background-color: #3c3c3c;
   border-radius: 0.5rem;
 }
 
@@ -348,7 +352,7 @@
 }
 
 .product-item .bottom .comment-script .header-cmt .star-cus-rate {
-  color: #ffa62b;
+  color: #ffc107;
 }
 
 .product-item .filterCmt {
@@ -367,14 +371,14 @@
 
 .product-item .bottom .add-comment textarea {
   margin-bottom: 1rem;
-  border: 1px solid #f2f2f2;
+  border: 1px solid #3c3c3c;
   border-radius: 0.5rem;
 }
 
 .product-item .bottom .add-comment select {
   padding: 0.4rem 0.5rem;
   width: fit-content;
-  border: 1px solid #16697a;
+  border: 1px solid #3c3c3c;
   outline: none;
   border-radius: 0.2rem;
   margin-right: 3.5rem;
@@ -382,7 +386,7 @@
 }
 
 .product-item .bottom .add-comment button {
-  background-color: #ffa62b;
+  background-color: #ffc107;
   color: #fff;
   border: none;
   border-radius: 0.5rem;
@@ -391,7 +395,7 @@
 }
 
 .product-item .bottom .add-comment button:hover {
-  background-color: #16697a;
+  background-color: #3c3c3c;
   transition: all .3s ease-in-out;
 }
 
@@ -491,4 +495,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
   justify-content: space-around;
+}
+
+.card-body p {
+  color: #ffc107;
 }

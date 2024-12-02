@@ -12,7 +12,7 @@ body {
 nav {
   display: flex;
   min-height: 60px;
-  background-color: #ffd60a;
+  background-color: #ffc107;
 }
 
 nav h1 {
@@ -20,16 +20,16 @@ nav h1 {
   width: fit-content;
   margin-left: 10px;
   margin-bottom: 0px;
-  color: #16697a;
+  color: #3c3c3c;
 }
 
 nav h1 a {
   text-decoration: none;
-  color: #16697a;
+  color: #000;
 }
 
 nav h1 a:hover {
-  color: #fff;
+  color: #3c3c3c;
 }
 
 nav ul {
@@ -54,9 +54,9 @@ nav ul li a {
 }
 
 nav ul li a:hover, nav ul li a.active {
-  background-color: #fff;
+  background-color: #3c3c3c;
   border-radius: 8px;
-  color: #ffd60a;
+  color: #ffc107;
 }
 
 nav form {
@@ -73,8 +73,8 @@ nav form .form-group {
 }
 
 nav form .btn:hover {
-  background-color: #16697a;
-  border-color: #16697a;
+  background-color: #3c3c3c;
+  border-color: #3c3c3c;
 }
 
 nav .cart {
@@ -85,7 +85,7 @@ nav .cart {
 
 nav .cart .btn:hover,
 nav .login-button .btn:hover {
-  background-color: #16697a;
+  background-color: #3c3c3c;
 }
 
 nav .cart a:hover, nav .login-button a {
@@ -93,7 +93,7 @@ nav .cart a:hover, nav .login-button a {
 }
 
 nav .cart .btn-primary {
-  background-color: #ffd60a;
+  background-color: #ffc107;
   border: 2px solid white;
 }
 
@@ -104,7 +104,7 @@ nav .login-button {
 }
 
 nav .login-button .btn-primary {
-  background-color: #ffd60a;
+  background-color: #ffc107;
   border: 2px solid white;
 }
 
@@ -146,7 +146,7 @@ nav .form-1 {
     position: absolute;
     right: 0;
     top: 60px;
-    background-color: #16697a;
+    background-color: #ffc107;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,7 +169,7 @@ nav .form-1 {
     right: 0;
     margin-right: 20px;
     top: 15px;
-    background-color: #ffd60a;
+    background-color: #ffc107;
     border: #fff;
     font-size: 1.5rem;
   }
@@ -236,7 +236,7 @@ nav .form-1 {
 
 footer {
   padding: 2rem 1rem;
-  background-color: #061f24;
+  background-color: #3c3c3c;
   position: relative;
   width: 100%;
   height: fit-content;
@@ -245,7 +245,7 @@ footer {
 
 footer a {
   text-decoration: none;
-  color: #ffd60a;
+  color: #ffc107;
 }
 
 footer a:hover{
@@ -253,7 +253,7 @@ footer a:hover{
 }
 
 footer i {
-  color: #ffd60a;
+  color: #ffc107;
 }
 
 footer .gg-map {
