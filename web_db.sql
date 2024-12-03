@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2024 at 04:54 AM
+-- Generation Time: Dec 03, 2024 at 10:33 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -42,10 +42,10 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`ID`, `NAME`, `PHONE`, `ADDRESS`, `USERNAME`, `EMAIL`, `IMG_URL`) VALUES
-(1, 'Nguyễn Phan Duy Minh', '0786201662', 'Tây Ninh', 'minh123', 'minh.nguyendyingobelink1@hcmut.edu.vn', './Views/images/minh.jpg'),
-(2, 'Đặng Thành Anh', '0906482890', 'quận 12 TP HCM', 'anh123', 'minh.ngo147596382@hcmut.edu.vn', './Views/images/thanhanh.jpg'),
+(1, 'Nguyễn Phan Duy Minh', '0786201662', 'Tây Ninh', 'minh123', 'minh.nguyendyingobelink1@hcmut.edu.vn', './Views/images/Orion.jpg'),
+(2, 'Đặng Thành Anh', '0906482890', 'quận 12 TP HCM', 'anh123', 'minh.ngo147596382@hcmut.edu.vn', './Views/images/anh.jpg'),
 (3, 'Nguyễn Hữu Nhật Minh', '0328424319', 'quận 10, TP HCM', 'nyattomin', 'huy.dangthanh1006@gmail.com', './Views/images/nhatminh.jpg'),
-(4, 'Hồng Anh Quân', '0338375019', '268 Lý Thường Kiệt, Phường 14, Quận 10, Hồ Chí Minh', 'quan123', 'quan.anh@gmail.com', './Views/images/AnhQuan.jpg');
+(4, 'Hồng Anh Quân', '0338375019', '268 Lý Thường Kiệt, Phường 14, Quận 10, Hồ Chí Minh', 'quan123', 'quan.anh@gmail.com', './Views/images/UI_Card_Icon_101883.png');
 
 -- --------------------------------------------------------
 
@@ -142,7 +142,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`ID`, `NAME`, `PRICE`, `IMG_URL`, `NUMBER`, `DECS`, `CATEGORY`, `TOP_PRODUCT`) VALUES
-(1, 'PC Gaming ASUS ROG Strix GT15 G15', 25000000, 'https://tfpalive.github.io/Web/1.jpg', 10, 'PC gaming ASUS ROG Strix với card đồ họa NVIDIA GeForce RTX 3070 và CPU Intel i7, đảm bảo hiệu năng mượt mà cho mọi tựa game.', 'PC Gaming', 1),
+(1, 'PC Gaming ASUS ROG Strix GT15 G15', 24000000, 'https://tfpalive.github.io/Web/1.jpg', 10, 'PC gaming ASUS ROG Strix với card đồ họa NVIDIA GeForce RTX 3070 và CPU Intel i7, đảm bảo hiệu năng mượt mà cho mọi tựa game.', 'PC Gaming', 1),
 (2, 'Laptop Gaming MSI Raider GE78', 35000000, 'https://tfpalive.github.io/Web/2.jpg', 15, 'Laptop gaming MSI Raider GE78 với màn hình 17 inch QHD, card RTX 3080 và RAM 16GB, giúp bạn trải nghiệm game tuyệt vời mọi lúc.', 'Laptop Gaming', 1),
 (3, 'Sony PlayStation 5', 15000000, 'https://tfpalive.github.io/Web/3.jpg', 5, 'Máy chơi game console Sony PlayStation 5, hỗ trợ 4K HDR và khả năng tương thích ngược với nhiều tựa game PS4.', 'Console', 1),
 (4, 'Xbox Series X', 14000000, 'https://tfpalive.github.io/Web/4.jpg', 7, 'Console Xbox Series X của Microsoft, hiệu năng ấn tượng với SSD 1TB, giúp load game nhanh chóng và trải nghiệm đồ họa tuyệt đẹp.', 'Console', 1),
@@ -250,9 +250,9 @@ CREATE TABLE `sub_img_url` (
 --
 
 INSERT INTO `sub_img_url` (`ID`, `PID`, `IMG_URL`) VALUES
-(1, 1, './Views/images/pc_asus_rog_strix_01.png'),
-(2, 1, './Views/images/pc_asus_rog_strix_02.png'),
-(3, 1, './Views/images/pc_asus_rog_strix_03.png'),
+(1, 1, './Views/images/'),
+(2, 1, './Views/images/'),
+(3, 1, './Views/images/'),
 (4, 2, './Views/images/laptop_msi_raider_01.png'),
 (5, 2, './Views/images/laptop_msi_raider_02.png'),
 (6, 2, './Views/images/ps5_01.jpeg'),
