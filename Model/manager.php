@@ -100,12 +100,11 @@ class manager extends customer{
     }
     public function get_all_user_info(){
         $query =    "SELECT `account`.`ID` AS `id`,
-                            `account`.`FNAME` AS `name`, 
+                            `account`.`NAME` AS `name`, 
                             `account`.`PHONE` AS `phone`, 
                             `account`.`ADDRESS` AS `add`,
                             `account`.`EMAIL` AS `mail`,
-                            `account`.`IMG_URL` AS `img`, 
-                            `account`.`RANK` AS `rank` 
+                            `account`.`IMG_URL` AS `img`
                     FROM `account`";
         return mysqli_query($this->connect, $query);
     }
@@ -157,12 +156,11 @@ class manager extends customer{
         return mysqli_query($this->connect, $query);
     }
     public function get_user($id){
-        $query =    "SELECT `account`.`FNAME` AS `name`,
+        $query =    "SELECT `account`.`NAME` AS `name`,
                             `account`.`PHONE` AS `phone`, 
                             `account`.`ADDRESS` AS `add`, 
                             `account`.`USERNAME` AS `username`, 
                             `account`.`IMG_URL` AS `img`, 
-                            `account`.`PWD` AS `pwd`, 
                             `account`.`EMAIL` AS `mail`
                     FROM    `account`
                     WHERE   `account`.`ID` = " . $id;

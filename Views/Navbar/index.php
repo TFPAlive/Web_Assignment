@@ -15,6 +15,7 @@
             <li><a href="?url=Home/About_us/">Về chúng tôi</a></li>
             <li><a href="?url=Home/Products/">Sản phẩm</a></li>
             <li><a href="?url=Home/Contact_us/">Liên hệ</a></li>
+            <li><a href="?url=Home/member_page/">Quản lý</a></li>
         </ul>
 
         <form class="form">

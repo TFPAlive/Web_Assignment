@@ -145,35 +145,11 @@ class Home extends Controller{
             echo "?url=/Home/member_page/";
         }
         function member_page($user){
-            if($user == "member"){
-                $mem = $this->model($user);
-                $cartid = $mem->get_cart($_SESSION["id"]);
-                $product_in_cart = array();
-                foreach($cartid as $id){
-                    array_push($product_in_cart,(["cartid" => $id, "product" =>  $mem->get_product_in_cart_mem((int)$id["id"])]));
-                }
-                $combo =  $mem->get_order_combo_mem($_SESSION["id"]);
-                $product_in_combo = array();
-                foreach($combo as $cb){
-                    array_push($product_in_combo, (["time" => $cb["time"], "name" => $cb["name"], "price" => $cb["price"], "size" => $cb["size"], "cycle" => mysqli_fetch_array($mem->get_cycle_id($cb["cycle"]))["cycle"], "product" => $mem->get_product_in_combo($cb["cbid"])]));
-                }
-                $this->view("Memberpage", [
-                    "user" => $mem->get_user($_SESSION["id"]),
-                    "product_in_cart" => $product_in_cart,
-                    "order_combo" => $product_in_combo,
-                    "state" => $user
-                ]);
-            }
-            else if($user == "manager"){
                 $this->view("Memberpage", [
                     "state" => $user,
                     "member" => $this->model($user)->get_all_user_info()
                 ]);
             }
-            else{
-                $this->Login($user, "member_page");
-            }
-        }
         function add_item_comment($user, $array){
             $this->model($user)->add_item_comment($array[2], $array[3], $array[4], $_SESSION["id"]);
         }   

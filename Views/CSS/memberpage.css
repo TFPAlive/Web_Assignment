@@ -1,4 +1,9 @@
-*{
+body, .card {
+    background-color: black !important;
+    color: white !important;
+}
+
+  *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -8,16 +13,7 @@ input{
     width: 100%;
 }
 .mybutton_click{
-    /* background-color: #ffa62b;;
-    color: white;
-    cursor: pointer;
-    font-size: medium;
-    border: 2px solid #ffa62b;
-    border-radius: 10px;
-    padding: 3px;
-    margin-top: 10px;
-    max-width: fit-content; */
-    background-color: #ffa62b;
+    background-color: #ffc107;
     float: right;
     margin-right: 10px;
     font-size: x-small;
@@ -62,7 +58,7 @@ input{
 .myactive{
     border-bottom: 0;
     box-shadow: 0 !important;
-    border-left: 3px solid #ffa62b;
+    border-left: 3px solid #ffc107;
     background-color: #f6dcb8;
 }
 .member-info .fas{
@@ -158,7 +154,7 @@ input{
         width: 50%;
     }
     .myactive{
-        border-top: 3px solid #ffa62b;
+        border-top: 3px solid #ffc107;
     }
     .container-fuild > .row.margin-none.justify-content-center.align-content-stretch > .col-sm-12 > .row > .col-12.border_bot{
             -bottom: 0;
@@ -177,12 +173,9 @@ input{
         font-size: medium;
     }
 }
-.white{
-    background-color: white;
-}
 .container-fuild > .row.flex-wrap > h2{
     text-align: center;
-    color: #ffa62b;
+    color: #ffc107;
 }
 .card{
     max-width: 400px;
@@ -191,7 +184,6 @@ input{
 .card img{
     width: 100% !important;
     max-width: 100%;
-    max-height: 300px;
     object-fit: cover;
 }
 
@@ -222,8 +214,7 @@ input{
     margin: auto;
     padding: 0;
     top: 120px;
-    width: 100%;
-    max-width: 650px;
+    width: 700px !important;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -288,7 +279,7 @@ input{
 
 .edit-profile-btn button {
     padding: 0.5rem 1rem;
-    background-color: #ffa62b;
+    background-color: #ffc107;
     border: none;
     border-radius: 0.5rem;
     color: #fff;
@@ -303,4 +294,22 @@ input{
 }
 .frame_edit_profile{
     display: none;;
+}
+
+.modal-content {
+    background-color: #3c3c3c !important;
+}
+
+.flex {
+    display: flex;
+}
+
+.btn-primary {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+}
+
+.btn-primary:hover {
+    background-color: #3c3c3c !important;
+    color: #ffc107 !important;
 }
