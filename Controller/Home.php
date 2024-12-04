@@ -178,7 +178,7 @@ class Home extends Controller{
                 </div>";
                 }
             }
-        function get_user($array){
+        function get_user($_, $array){
             $data = $this->model(model: 'manager')->get_user((int)$array[2]);
             if(!empty($data)){
                 foreach($data as $row){
