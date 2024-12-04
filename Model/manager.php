@@ -189,5 +189,17 @@ class manager extends customer{
         $query =    "INSERT INTO `ban_account`(`ban_account`.`CMND`) VALUES ((SELECT `account`.`CMND` FROM `account` WHERE `account`.`ID` = " . $id ."));";
         return mysqli_query($this->connect, $query);
     }
+    public function get_order() {
+            $query = "SELECT `order`.`ID`, `account`.`NAME`, `order`.`TIME`,  `order`.`TOTAL`
+                                FROM `order` 
+                                LEFT JOIN `account` ON `order`.`UID` = `account`.`ID`";
+            return mysqli_query($this->connect, $query);
+    }
+    public function product_in_order() {
+        $query = "SELECT `product_in_order`.`ID`, `product`.`NAME`,  `product_in_order`.`OID`,  `product_in_order`.`QUANTITY`
+                            FROM `product_in_order` 
+                            LEFT JOIN `product` ON `product_in_order`.`PID` = `product`.`ID`;";
+        return mysqli_query($this->connect, $query);
+}
 }
 ?>

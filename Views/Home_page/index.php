@@ -28,77 +28,6 @@
         <?php require("Views/Navbar/index.php");?> 
 
         <div class="homepage">
-            <div class="hero">
-                <div class="row1">
-                    <div class="swiper-container slider-1">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="Views/images/1.jpg" alt=""/>
-                                <div class="content">
-                                    <h1 style="color: #ffc107;"> UNLOCK <br/> YOUR POTENTIAL</h1>
-                                    <p style="color: #ffc107;"> With Apple, HP, Lenovo, DELL, ACER, ASUS </p>
-                                    <a href="?url=Home/Products/" style="color: white;">Buy Now</a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="Views/images/2.png" alt="hero image"/>
-                                <div class="content">
-                                    <h1> Hỗ trợ tư vấn trực tiếp<br/>
-                                        <span>20% off</span> tại cửa hàng
-                                    </h1>
-                                    <p style="color: white;"> Cung cấp các gói chứa đầy đủ một bộ sưu tập phù hợp với từng sở thích, tính cách </p>
-                                    <a href="?url=Home/Products/">Mua ngay</a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="Views/images/3.webp" alt="hero image"/>
-                                <div class="content">
-                                    <h1>Đăng ký ngay</h1>
-                                    <p style="color: #ffc107;">Nhanh tay đăng ký tài khoản để nhận được nhiều ưu đãi hấp dẫn cũng như những trải nghiệm thú vị nhé!</p>
-                                    <a href="?url=Home/Products/">Mua ngay</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="arrows d-flex">
-                    <div class="swiper-prev d-flex">
-                        <i class="bx bx-chevrons-left swiper-icon"></i>
-                    </div>
-                    <div class="swiper-next d-flex">
-                        <i class="bx bx-chevrons-right swiper-icon"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="shop-collection">
-                <h2>
-                    <i class="far fa-hand-point-right"></i> Các sản phẩm của Shop <i class="far fa-heart"></i>
-                </h2>
-                <div class="container">
-                    <div class="collection-layout"> 
-                        <?php
-                        $shirt = false;
-                        $pant = false;
-                        $ass = false;
-                            foreach($data["collection"] as $row) {
-                                if(($row["cate"] == "Shirt" && !$shirt) || ($row["cate"] == "Trousers" && !$pant) || ($row["cate"] == "Accessories" && !$ass)){
-                                    if($row["cate"] == "Shirt") {$shirt = true;}
-                                    if($row["cate"] == "Trousers") {$pant = true;}
-                                    if($row["cate"] == "Accessories") {$ass = true;}
-                                    echo    
-                                        "<div class='shop-item'>
-                                            <img src='" . $row["img"] . "' alt='image'/>
-                                            <div class='collection-content'>
-                                                <h3>" . $row["cate"] . "</h3>
-                                                <a href='?url=Home/Products'>MUA NGAY</a>
-                                            </div>
-                                        </div>";
-                                }
-                            }
-                        ?> 
-                    </div>
-                </div>
-            </div>
             <div class="featured">
                 <h2>
                     <i class="far fa-hand-point-right"></i> Sản phẩm được ưa chuộng <i class="fas fa-chart-line"></i>
@@ -141,14 +70,36 @@
                     </div>
                 </div>
             </div>
+            <div class="order">
+                <h2>Đơn hàng gần đây</h2>
+                <?php
+                if(empty($data["order"])) echo "order empty";
+                else
+                    foreach($data["order"] as $row) {
+                        echo   "<div class='order-card'>
+                    <div class='time-ordered'>". $row['TIME'] . "</div>
+                    <div class='order-name'>". $row['NAME'] . "</div>
+                    <div class='order-details'>";
+                        foreach($data["product-in-order"] as $pio) {
+                            if ($pio['OID'] == $row['ID']) {
+                                echo "<div class='product-order'>
+                            <div class='quantity'>". $pio['QUANTITY'] . "</div>
+                            <div class='product-name'>". $pio['NAME'] . "</div>
+                        </div>";
+                            }
+                        }
+                        echo "<div class='total'>
+                            Total: 
+                            <div class='total-price'><span>". $row['TOTAL'] . "</span> VND</div>
+                        </div>
+                    </div>
+                </div>";
+                    }
+                ?>
+            </div>
         </div> 
 
         <?php require_once("Views/footer/index.php");?> 
         <script src="Views/JS/home.js"></script>
-        <script>
-            document.querySelector("#navbar > nav > div.login-button > div > button").onclick = function() {
-                change_show();
-            }
-        </script>
     </body>
 </html>
