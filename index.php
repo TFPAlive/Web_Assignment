@@ -1,5 +1,4 @@
 <?php
-session_start();
 // Process URL from browser
 require_once "Function/App.php";
 

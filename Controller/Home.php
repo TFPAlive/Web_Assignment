@@ -219,5 +219,11 @@ class Home extends Controller{
             }
             else echo "null";
         }
+        function Logout() {
+            session_start();
+            session_destroy();
+            header('Location: ../../web_assignment/public');
+            exit();
+        }
     }
 ?>
