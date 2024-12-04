@@ -332,3 +332,7 @@ body, .card, .modal-content {
   grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
   justify-content: space-around;
 }
+
+.addItem-modal-body {
+  background-color: #4d4d4d;
+}

@@ -1,16 +1,16 @@
 <?php
 
 class Home extends Controller{
-        function Statistic(): void{
+        function Statistic($_){
             $cus = $this->model(model: 'manager');
-            $this->view(view: "Home_page", data: [
+            $this->view(view: "Statistic", data: [
                 "collection" => $cus->get_swiper_slide_collection(),
                 "featured" => $cus->get_products("", ""),
                 "order" => $cus->get_order(),
                 "product-in-order" => $cus->product_in_order()
             ]);
         }
-        function About_us(): void{
+        function About_us(){
             $this->view(view: "About_US", data: []);
         }
         function Products($_, $sort_1="", $sort_2=""): void{
@@ -20,12 +20,12 @@ class Home extends Controller{
                 "product" => $cus->get_products($sort_1, $sort_2)
             ]);
         }
-        function Item($_, $pid): void{
+        function Item($_, $pid){
             $cus = $this->model(model: 'manager');
             $comment = $cus->get_item_comment($pid[2], "");
             $cmt_info = array();
             foreach($comment as $cmt){
-                array_push( $cmt_info, (["id" => $cmt["id"], "pid" => $cmt["pid"], "uid" => $cmt["uid"], "uname" => $cus->get_cmt_user_name($cmt["uid"]), "star" => $cmt["star"], "content" => $cmt["content"], "time" => $cmt["time"]]));
+                array_push( $cmt_info,  (["id" => $cmt["id"], "pid" => $cmt["pid"], "uid" => $cmt["uid"], "uname" => $cus->get_cmt_user_name($cmt["uid"]), "star" => $cmt["star"], "content" => $cmt["content"], "time" => $cmt["time"]]));
             }
             $this->view(view: "Item", data: [
                 "product_id" => $cus->get_product_at_id($pid[2]),
@@ -34,17 +34,17 @@ class Home extends Controller{
                 "comment" => $cmt_info
             ]);
         }
-        function Contact_us(): void{
+        function Contact_us($_){
             $this->view(view: "Contact_US", data: [
                 "message" => $this->model(model: 'manager')->get_message()
             ]);
         }
-        function member_page(): void{
+        function member_page($_){
             $this->view("Memberpage", data: [
                 "member" => $this->model(model: 'manager')->get_all_user_info()
             ]);
         }
-        function add_new_item(){
+        function add_new_item($_){
             if(isset($_POST["iname"]) && isset($_POST["price"]) && isset($_FILES["image-url"]) && isset($_POST["description"]) && isset($_POST["remain"]) && isset($_POST["category"]))
             {
                 if(!file_exists("./Views/images/" . $_FILES["image-url"]['name'][0])){
@@ -68,9 +68,9 @@ class Home extends Controller{
                 $this->model(model: 'manager')->add_sub_img($pid, './Views/images/' . $_FILES['image-url']['name'][3]);
                 $this->model(model: 'manager')->add_sub_img($pid, './Views/images/' . $_FILES['image-url']['name'][4]);
             }
-            $this->Products(null);
+            $this->Products($_);
         }
-        function update_item($pid){
+        function update_item($_, $pid){
             if(isset($_POST["name"]) && isset($_POST["price"]) && isset($_POST["description"]) && isset($_POST["remain"]) && isset($_POST["category"]))
             {
                 $sub_id = mysqli_fetch_all($this->model(model: 'manager')->get_sub_img_id($pid[2]), MYSQLI_ASSOC);
@@ -91,30 +91,30 @@ class Home extends Controller{
                 $this->model(model: 'manager')->update_item_nope_img($pid[2], $_POST["name"], $_POST["price"], $_POST["description"], $_POST["remain"], $_POST["category"], $_POST["featured_product"]);  
             }
             else {echo "Not Update";}
-            $this->Item(null, $pid);
+            $this->Item($_, $pid);
         }
-        function delete_item($array){
+        function delete_item($_, $array){
             if($this->model(model: 'manager')->delete_item((int)$array[2])){
                 echo "OK";
             } else {
                 echo "Nope";
             }
         }
-        function delete_comment($array){
+        function delete_comment($_, $array){
             if($this->model(model: 'manager')->delete_comment((int)$array[2])){
                 echo "OK";
             } else {
                 echo "Nope";
             }
         }
-        function sort_product(){
+        function sort_product($_){
             if(isset($_POST["sort-by"]) && isset($_POST["order-by"])){
                 $sort_1 = $_POST["sort-by"];
                 $sort_2 = $_POST["order-by"];
-                $this->Products($sort_1, $sort_2);
+                $this->Products($_, $sort_1, $sort_2);
             }
         }
-        function sort_comment($array){
+        function sort_comment($_, $array){
             $result = $this->model(model: 'manager')->get_item_comment((int)$array[2], $array[3]);
             $cmt_info = array();
             foreach($result as $cmt){
@@ -123,7 +123,7 @@ class Home extends Controller{
             echo "<div class=\"no-filter-cmt\"></div>";
             if(empty($cmt_info)) echo "<div class=\"card\">
                                                   <div class=\"card-body\" id=\"if-no-cmt\">No comment</div></div>";
-            else {
+              else {
                 $count = 0;
                 foreach ($cmt_info as $row) {
                   echo "<div class=\"card filterCmt " . $row["star"] . "-star-num\">
@@ -153,6 +153,7 @@ class Home extends Controller{
                       <div class=\"script-cmt\">
                         <p>" . $row["content"] . "</p>
                       </div>";
+                    if($_ == "manager"){
                       echo "<div><i class=\"fas fa-trash-alt\" data-bs-toggle=\"modal\" data-bs-target=\"#delcmtModal-" .$count . "\"></i></div>";
                       echo "<div class=\"modal fade\" id=\"delcmtModal-" .$count . "\" tabindex=\"-1\" aria-labelledby=\"delcmtModalLabel-" .$count . "\" aria-hidden=\"true\">
                         <div class=\"modal-dialog modal-dialog-centered\">
@@ -177,7 +178,8 @@ class Home extends Controller{
                     </div>
                 </div>";
                 }
-            }
+              }
+        }
         function get_user($_, $array){
             $data = $this->model(model: 'manager')->get_user((int)$array[2]);
             if(!empty($data)){
@@ -206,11 +208,11 @@ class Home extends Controller{
             }
             else echo "null";
         }
-        function remove_user($array){
+        function remove_user($_, $array){
             if($this->model(model: 'manager')->remove_user((int)$array[2])) echo "ok";
             else echo "null";
         }
-        function ban_user($array){
+        function ban_user($_, $array){
             if($this->model(model: 'manager')->ban_user((int)$array[2])){
                 if($this->model(model: 'manager')->remove_user($array[2])) echo "ok";
                 else echo "null";
