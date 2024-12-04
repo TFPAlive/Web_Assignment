@@ -1,4 +1,4 @@
-body, .card {
+body, .card, .modal-content {
   background-color: black !important;
   color: white !important;
 }
@@ -113,7 +113,6 @@ body, .card {
 
 .company-product .card {
   border: none;
-  margin: 0 1rem;
 }
 
 .company-product .card .card-body {

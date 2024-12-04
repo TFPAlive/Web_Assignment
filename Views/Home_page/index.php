@@ -30,7 +30,7 @@
         <div class="homepage">
             <div class="featured">
                 <h2>
-                    <i class="far fa-hand-point-right"></i> Sản phẩm được ưa chuộng <i class="fas fa-chart-line"></i>
+                   Sản phẩm được ưa chuộng
                 </h2>
                 <div class="row1 container">
                     <div class="swiper-container slider-2">

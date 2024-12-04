@@ -500,3 +500,7 @@ body, .card {
 .card-body p {
   color: #ffc107;
 }
+
+.editItem-modal-body {
+  background-color: #4d4d4d;
+}

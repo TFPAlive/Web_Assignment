@@ -1,6 +1,84 @@
 <?php
-require_once "./Model/customer.php";
-class manager extends customer{
+class manager extends DB{
+    public function get_swiper_slide_collection(){
+        $query = "SELECT `product`.`IMG_URL` AS \"img\", `product`.`CATEGORY` AS \"cate\" FROM `product` WHERE `product`.`TOP_PRODUCT` = 1;";
+        return mysqli_query($this->connect, $query);
+    }
+    public function get_product_cates(){
+        $query = "SELECT `product`.`CATEGORY` AS \"cate\" FROM `product` GROUP BY `product`.`CATEGORY` ORDER BY `product`.`ID`;";
+        return mysqli_query($this->connect, $query);
+    }
+    public function get_products($sort_1, $sort_2){
+        $query = "";
+        if($sort_1 == "" && $sort_2 == ""){
+            $query = "SELECT `product`.`ID` AS \"id\", `product`.`IMG_URL` AS \"img\", `product`.`NAME` AS \"name\", `product`.`PRICE` AS \"price\", `product`.`DECS` AS \"decs\", `product`.`CATEGORY` as \"cate\", `product`.`TOP_PRODUCT` as \"top_seller\" FROM `product`;";
+        }
+        else if($sort_1 == "pname" && $sort_2 == "ASC"){
+            $query = "SELECT `product`.`ID` AS \"id\", `product`.`IMG_URL` AS \"img\", `product`.`NAME` AS \"name\", `product`.`PRICE` AS \"price\", `product`.`DECS` AS \"decs\", `product`.`CATEGORY` as \"cate\", `product`.`TOP_PRODUCT` as \"top_seller\" FROM `product` ORDER BY `product`.`NAME` ASC;";
+        }
+        else if($sort_1 == "pname" && $sort_2 == "DESC"){
+            $query = "SELECT `product`.`ID` AS \"id\", `product`.`IMG_URL` AS \"img\", `product`.`NAME` AS \"name\", `product`.`PRICE` AS \"price\", `product`.`DECS` AS \"decs\", `product`.`CATEGORY` as \"cate\", `product`.`TOP_PRODUCT` as \"top_seller\" FROM `product` ORDER BY `product`.`NAME` DESC;";
+        }
+        else if($sort_1 == "price" && $sort_2 == "ASC"){
+            $query = "SELECT `product`.`ID` AS \"id\", `product`.`IMG_URL` AS \"img\", `product`.`NAME` AS \"name\", `product`.`PRICE` AS \"price\", `product`.`DECS` AS \"decs\", `product`.`CATEGORY` as \"cate\", `product`.`TOP_PRODUCT` as \"top_seller\" FROM `product` ORDER BY `product`.`PRICE` ASC;";
+        }
+        else if($sort_1 == "price" && $sort_2 == "DESC"){
+            $query = "SELECT `product`.`ID` AS \"id\", `product`.`IMG_URL` AS \"img\", `product`.`NAME` AS \"name\", `product`.`PRICE` AS \"price\", `product`.`DECS` AS \"decs\", `product`.`CATEGORY` as \"cate\", `product`.`TOP_PRODUCT` as \"top_seller\" FROM `product` ORDER BY `product`.`PRICE` DESC;";
+        }
+        
+        return mysqli_query($this->connect, $query);
+    }
+    function insert_message($fname, $email, $phone, $subject, $content){
+        $query =    "INSERT INTO `message`(`message`.`FNAME`, `message`.`EMAIL`, `message`.`PHONE`, `message`.`SUBJECT`, `message`.`CONTENT`) VALUES
+                    (\"" . $fname . "\", \"" . $email . "\", \"" . $phone . "\", \"" . $subject . "\", \"" . $content . "\");";
+        return mysqli_query($this->connect, $query); //insert delete update => true false -> 
+    }
+    public function get_product_at_id($pid) {
+        $query = "SELECT `product`.`ID` AS `id`, `product`.`IMG_URL` AS \"img\", `product`.`NAME` \"name\", `product`.`PRICE` AS \"price\", `product`.`NUMBER` AS \"num\", `product`.`DECS` AS \"decs\", `product`.`CATEGORY` as \"cate\", `product`.`TOP_PRODUCT` as \"top_item\" FROM `product` WHERE `product`.`ID` = " . (int)$pid . ";";
+        return mysqli_query($this->connect, $query);
+    }
+    public function get_sub_img($pid) {
+        $query = "SELECT `sub_img_url`.IMG_URL AS \"img\" FROM `sub_img_url` WHERE `sub_img_url`.`PID` = " . (int)$pid . ";";
+        return mysqli_query($this->connect, $query);
+    }
+    public function get_product_same_cate($pid) {
+        $sql = "SELECT `product`.`CATEGORY` as \"cate\" FROM `product` WHERE `product`.`ID` = " . (int)$pid . ";";
+        $cate_temp = mysqli_query($this->connect, $sql);
+        $cate = mysqli_fetch_array($cate_temp)["cate"];
+        $query = "SELECT `product`.`ID` AS \"id\", `product`.`IMG_URL` AS \"img\", `product`.`NAME` \"name\", `product`.`PRICE` AS \"price\", `product`.`DECS` AS \"decs\", `product`.`CATEGORY` as \"cate\" FROM `product` WHERE `product`.`CATEGORY` = \"" . $cate . "\";";
+        return mysqli_query($this->connect, $query);
+    }
+    public function get_item_comment($pid, $sort) {
+        $query = "";
+        if($sort == ""){
+            $query = "SELECT `comment`.ID AS \"id\", `comment`.PID AS \"pid\", `comment`.UID AS \"uid\", `comment`.STAR AS \"star\", `comment`.CONTENT AS \"content\", `comment`.TIME AS \"time\" FROM `comment` WHERE `comment`.`PID` = " . (int)$pid . ";";
+        } else if($sort == "high-first"){
+            $query = "SELECT `comment`.ID AS \"id\", `comment`.PID AS \"pid\", `comment`.UID AS \"uid\", `comment`.STAR AS \"star\", `comment`.CONTENT AS \"content\", `comment`.TIME AS \"time\" FROM `comment` WHERE `comment`.`PID` = " . (int)$pid . " ORDER BY `comment`.STAR DESC;";
+        } else if($sort == "low-first"){
+            $query = "SELECT `comment`.ID AS \"id\", `comment`.PID AS \"pid\", `comment`.UID AS \"uid\", `comment`.STAR AS \"star\", `comment`.CONTENT AS \"content\", `comment`.TIME AS \"time\" FROM `comment` WHERE `comment`.`PID` = " . (int)$pid . " ORDER BY `comment`.STAR ASC;";
+        }
+        
+        return mysqli_query($this->connect, $query);
+    }
+    public function get_cmt_user_name($uid) {
+        $query = "SELECT `account`.`NAME` AS \"uname\" FROM `account` WHERE `account`.`ID` = " . (int)$uid . ";";
+        return mysqli_query($this->connect, $query);
+    }
+    
+    public function get_id_user($username, $pwd){
+        $query =    "SELECT `account`.`ID` AS `id` FROM `account`
+                    WHERE `account`.`USERNAME` = \"" . $username . "\"
+                            AND `account`.`PWD` = \"" . $pwd ."\";";
+        return mysqli_query($this->connect, $query);
+    }
+    public function check_account_ban($cmnd){
+        $query =    "SELECT `ban_account`.`ID` as `id`   FROM `ban_account` WHERE `ban_account`.`CMND` = \"" . $cmnd . "\"";
+        return mysqli_query($this->connect, $query);
+    }
+    public function check_account_inside($cmnd, $mail){
+        $query =    "SELECT `account`.`ID` as `id` FROM `account` WHERE `account`.`EMAIL` = \"" . $mail ."\" OR `account`.`CMND` = \"" . $cmnd . "\";";
+        return mysqli_query($this->connect, $query);
+    }
     public function add_new_item($name, $price, $desc, $remain, $cate, $path){
         $name_mod = explode("'", $name);
         $desc_mod = explode("'", $desc); 
@@ -54,7 +132,7 @@ class manager extends customer{
     public function delete_item($pid){
         $query = "DELETE FROM `sub_img_url` WHERE `sub_img_url`.`PID` = " . $pid . ";";
         mysqli_query($this->connect, $query);
-        $query = "DELETE FROM `product_in_cart` WHERE `product_in_cart`.`PID` = " . $pid . ";";
+        $query = "DELETE FROM `product_in_order` WHERE `product_in_order`.`PID` = " . $pid . ";";
         mysqli_query($this->connect, $query);
         $query = "DELETE FROM `product_in_combo` WHERE `product_in_combo`.`PID` = " . $pid . ";";
         mysqli_query($this->connect, $query);
@@ -65,39 +143,6 @@ class manager extends customer{
         $query = "DELETE FROM `comment` WHERE `comment`.`ID` = " . $cid . ";";
         return mysqli_query($this->connect, $query);
     }
-    function add_comment_news($content, $nid, $cid){
-        $query = "INSERT INTO `comment_news` (`nid`, `cid`, `content`, `time`) VALUE `(`$nid`, `$cid`, `$content`, `date('Y/m/d')`)";
-        return mysqli_query($this->connect, $query);
-    }
-    function get_news_by_nid($nid){
-        $query = "SELECT `news`.`ID` as `id`,
-                            `news`.`CID` as `cid`, 
-                            `news`.`KEY` as `key`, 
-                            `news`.`TIME` as `time`,
-                            `news`.`TITLE` as `title`,  
-                            `news`.`CONTENT` as `content`, 
-                            `news`.`IMG_URL` as `img_url`, 
-                            `news`.`SHORT_CONTENT` as `short_content`
-                FROM `news`  WHERE `news`.`ID`= ". $nid .";";
-        return mysqli_query($this->connect, $query);
-    }
-    public function get_message(){
-        $query =    "SELECT    `message`.`FNAME` AS `name`, 
-                                `message`.`EMAIL` AS `email`, 
-                                `message`.`PHONE` AS `phone`, 
-                                `message`.`SUBJECT` AS `sub`, 
-                                `message`.`CONTENT` AS `content`, 
-                                `message`.`CHECK` AS `check`, 
-                                `message`.`ID` AS `id`
-                    FROM `message`";
-        return mysqli_query($this->connect, $query);
-    }
-    public function update_message($id){
-        $query =    "UPDATE `message`
-                    SET `message`.`CHECK` = 1
-                    WHERE `message`.`ID` = " . $id;
-        return mysqli_query($this->connect, $query);
-    }
     public function get_all_user_info(){
         $query =    "SELECT `account`.`ID` AS `id`,
                             `account`.`NAME` AS `name`, 
@@ -106,53 +151,6 @@ class manager extends customer{
                             `account`.`EMAIL` AS `mail`,
                             `account`.`IMG_URL` AS `img`
                     FROM `account`";
-        return mysqli_query($this->connect, $query);
-    }
-    public function add_new_combo($name, $price){
-        $query = "INSERT INTO `combo` (`combo`.`NAME`, `combo`.`COST`) VALUE ('" . $name . "', " . (int)$price . ");";
-        mysqli_query($this->connect, $query);
-        return mysqli_insert_id($this->connect);
-    }
-    public function update_new_combo($id, $name, $price){
-        $query = "UPDATE `combo` SET `NAME` = '$name'  , `COST`= '$price' WHERE `ID`= $id";
-        return mysqli_query($this->connect, $query);
-    }
-    public function add_product_in_combo($cbid, $shirt, $pant, $ass){
-
-        $query = "INSERT INTO `product_in_combo` (`product_in_combo`.`CBID`, `product_in_combo`.`PID`) VALUE (" . (int)$cbid . ", " . (int)$shirt . ");";
-        mysqli_query($this->connect, $query);
-        $query = "INSERT INTO `product_in_combo` (`product_in_combo`.`CBID`, `product_in_combo`.`PID`) VALUE (" . (int)$cbid . ", " . (int)$pant . ");";
-        mysqli_query($this->connect, $query);
-        $query = "INSERT INTO `product_in_combo` (`product_in_combo`.`CBID`, `product_in_combo`.`PID`) VALUE (" . (int)$cbid . ", " . (int)$ass . ");";
-        return mysqli_query($this->connect, $query);
-    }
-    public function update_product_in_combo($cbid, $shirt, $pant, $ass){
-        $query = "select id FROM product_in_combo WHERE cbid = '$cbid' limit 1";
-        $id = "";
-        $result = mysqli_query($this->connect, $query);
-        while($row = $result->fetch_assoc()) {
-            $id = $row["id"];                 
-        }
-        // echo ($id);
-        // echo ($cbid);
-        $query = "UPDATE `product_in_combo` SET `product_in_combo`.`PID`=" . (int)$shirt. " WHERE `product_in_combo`.`ID`=" .(int)$id;
-        mysqli_query($this->connect, $query);
-        $query = "UPDATE `product_in_combo` SET `product_in_combo`.`PID`=" . (int)$pant. " WHERE `product_in_combo`.`ID`=" .(int)$id;
-        mysqli_query($this->connect, $query);
-        $query = "UPDATE `product_in_combo` SET `product_in_combo`.`PID`=" . (int)$ass. " WHERE `product_in_combo`.`ID`=" .(int)$id;
-        mysqli_query($this->connect, $query);
-    }
-    public function add_cycle($time){
-        $time = $time . " ngày";
-        $query = "INSERT INTO `cycle` (`cycle`.`CYCLE`) VALUE ('" . $time . "');";
-        return mysqli_query($this->connect, $query);
-    }
-    public function delete_combo($cid){
-        $query = "DELETE FROM `order_combo` WHERE `order_combo`.`CBID` = " . $cid . ";";
-        mysqli_query($this->connect, $query);
-        $query = "DELETE FROM `product_in_combo` WHERE `product_in_combo`.`CBID` = " . $cid . ";";
-        mysqli_query($this->connect, $query);
-        $query = "DELETE FROM `combo` WHERE `combo`.`ID` = " . $cid . ";";
         return mysqli_query($this->connect, $query);
     }
     public function get_user($id){
@@ -167,18 +165,12 @@ class manager extends customer{
         return mysqli_query($this->connect, $query);
     }
     public function remove_user($id){
-        $query =    "DELETE FROM `comment_news` WHERE `comment_news`.`CID` = " . $id;
-        echo $query;
-        mysqli_query($this->connect, $query);
         $query =    "DELETE FROM `comment` WHERE `comment`.`UID` = " . $id;
         mysqli_query($this->connect, $query);
-        $query =    "DELETE FROM `product_in_cart` WHERE `product_in_cart`.`OID` IN (SELECT `cart`.`ID` FROM `cart` WHERE `cart`.`UID` = " . $id . ")";
+        $query =    "DELETE FROM `product_in_order` WHERE `product_in_order`.`OID` IN (SELECT `order`.`ID` FROM `order` WHERE `order`.`UID` = " . $id . ")";
         echo $query;
         mysqli_query($this->connect, $query);
-        $query =    "DELETE FROM `cart` WHERE `cart`.`UID` = " . $id;
-        echo $query;
-        mysqli_query($this->connect, $query);
-        $query =    "DELETE FROM `order_combo` WHERE `order_combo`.`UID` = " . $id;
+        $query =    "DELETE FROM `order` WHERE `order`.`UID` = " . $id;
         echo $query;
         mysqli_query($this->connect, $query);
         $query =    "DELETE FROM `account` WHERE `account`.`ID` = " . $id;
@@ -200,6 +192,17 @@ class manager extends customer{
                             FROM `product_in_order` 
                             LEFT JOIN `product` ON `product_in_order`.`PID` = `product`.`ID`;";
         return mysqli_query($this->connect, $query);
-}
+    }
+    public function get_message(){
+        $query =    "SELECT    `message`.`FNAME` AS `name`, 
+                                `message`.`EMAIL` AS `email`, 
+                                `message`.`PHONE` AS `phone`, 
+                                `message`.`SUBJECT` AS `sub`, 
+                                `message`.`CONTENT` AS `content`, 
+                                `message`.`CHECK` AS `check`, 
+                                `message`.`ID` AS `id`
+                    FROM `message`";
+        return mysqli_query($this->connect, $query);
+    }
 }
 ?>
