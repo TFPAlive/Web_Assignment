@@ -120,27 +120,27 @@ class Home extends Controller{
             foreach($result as $cmt){
                 array_push($cmt_info, (["id" => $cmt["id"], "pid" => $cmt["pid"], "uid" => $cmt["uid"], "uname" => $this->model(model: 'manager')->get_cmt_user_name($cmt["uid"]), "star" => $cmt["star"], "content" => $cmt["content"], "time" => $cmt["time"]]));
             }
-            echo "<div class=\"no-filter-cmt\"></div>";
-            if(empty($cmt_info)) echo "<div class=\"card\">
-                                                  <div class=\"card-body\" id=\"if-no-cmt\">No comment</div></div>";
+            echo "<div class='no-filter-cmt'></div>";
+            if(empty($cmt_info)) echo "<div class='card'>
+                                                  <div class='card-body' id='if-no-cmt'>No comment</div></div>";
               else {
                 $count = 0;
                 foreach ($cmt_info as $row) {
-                  echo "<div class=\"card filterCmt " . $row["star"] . "-star-num\">
-                  <div class=\"card-body\">
-                    <div class=\"header-cmt\">
+                  echo "<div class='card filterCmt " . $row["star"] . "-star-num'>
+                  <div class='card-body'>
+                    <div class='header-cmt'>
                       <div>
-                        <i class=\"fas fa-user-circle\"></i>";
+                        <i class='fas fa-user-circle'></i>";
                         foreach($row["uname"] as $name) {
                           echo "<span> " . $name["uname"] . "</span>";
                         }
                         echo "
-                        <div class=\"star-cus-rate\">";
+                        <div class='star-cus-rate'>";
                           for($i = 0; $i < $row["star"]; $i++) {
-                            echo "<i class=\"fas fa-star\"></i>";
+                            echo "<i class='fas fa-star'></i>";
                           }
                           for($i = 0; $i < 5 - $row["star"]; $i++) {
-                            echo "<i class=\"far fa-star\"></i>";
+                            echo "<i class='far fa-star'></i>";
                           }
                         echo "  
                         </div>
@@ -149,25 +149,24 @@ class Home extends Controller{
                         <p>" . $row["time"] . "</p>
                       </div>
                     </div>
-                    <div class=\"comment-content\">
-                      <div class=\"script-cmt\">
+                    <div class='comment-content'>
+                      <div class='script-cmt'>
                         <p>" . $row["content"] . "</p>
                       </div>";
-                    if($_ == "manager"){
-                      echo "<div><i class=\"fas fa-trash-alt\" data-bs-toggle=\"modal\" data-bs-target=\"#delcmtModal-" .$count . "\"></i></div>";
-                      echo "<div class=\"modal fade\" id=\"delcmtModal-" .$count . "\" tabindex=\"-1\" aria-labelledby=\"delcmtModalLabel-" .$count . "\" aria-hidden=\"true\">
-                        <div class=\"modal-dialog modal-dialog-centered\">
-                          <div class=\"modal-content\">
-                            <div class=\"modal-header\">
-                              <h5 class=\"modal-title\" id=\"delcmtModalLabel-" .$count . "\">Bạn muốn xóa bình luận này</h5>
-                              <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
+                      echo "<div><i class='fas fa-trash-alt' data-bs-toggle='modal' data-bs-target='#delcmtModal-" .$count . "'></i></div>";
+                      echo "<div class='modal fade' id='delcmtModal-" .$count . "' tabindex='-1' aria-labelledby='delcmtModalLabel-" .$count . "' aria-hidden='true'>
+                        <div class='modal-dialog modal-dialog-centered'>
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <h5 class='modal-title' id='delcmtModalLabel-" .$count . "'>Bạn muốn xóa bình luận này</h5>
+                              <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
                             </div>
-                            <div class=\"modal-body\">
+                            <div class='modal-body'>
                               
                             </div>
-                            <div class=\"modal-footer\">
-                              <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Đóng</button>
-                              <button type=\"button\" class=\"btn btn-primary\" data-bs-dismiss=\"modal\" onclick=\"delete_comment(" . $row["id"] . ", this)\">Xác nhận</button>
+                            <div class='modal-footer'>
+                              <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Đóng</button>
+                              <button type='button' class='btn btn-primary' data-bs-dismiss='modal' onclick='delete_comment(" . $row["id"] . ", this)'>Xác nhận</button>
                             </div>
                           </div>
                         </div>
@@ -179,28 +178,27 @@ class Home extends Controller{
                 </div>";
                 }
               }
-        }
         function get_user($_, $array){
             $data = $this->model(model: 'manager')->get_user((int)$array[2]);
             if(!empty($data)){
                 foreach($data as $row){
-                    echo "</div class=\"row\">";
-                    echo "<div class=\"col-12\">
-                            <div class=\"row\">
-                                <div class=\"col-4\"><strong>Họ và tên:</strong></div>
-                                <div class=\"col-8\"><h5>" . $row["name"] .  "</h5></div>
+                    echo "</div class='row'>";
+                    echo "<div class='col-12'>
+                            <div class='row'>
+                                <div class='col-4'><strong>Họ và tên:</strong></div>
+                                <div class='col-8'><h5>" . $row["name"] .  "</h5></div>
                             </div>
                         </div>";
-                    echo "<div class=\"col-12\">
-                            <div class=\"row\">
-                                <div class=\"col-4\"><strong>SĐT:</strong></div>
-                                <div class=\"col-8\"><h5>" . $row["phone"] .  "</h5></div>
+                    echo "<div class='col-12'>
+                            <div class='row'>
+                                <div class='col-4'><strong>SĐT:</strong></div>
+                                <div class='col-8'><h5>" . $row["phone"] .  "</h5></div>
                             </div>
                         </div>";
-                    echo "<div class=\"col-12\">
-                            <div class=\"row\">
-                                <div class=\"col-4\"><strong>Email:</strong></div>
-                                <div class=\"col-8\"><h5>" . $row["mail"] .  "</h5></div>
+                    echo "<div class='col-12'>
+                            <div class='row'>
+                                <div class='col-4'><strong>Email:</strong></div>
+                                <div class='col-8'><h5>" . $row["mail"] .  "</h5></div>
                             </div>
                         </div>";
                     echo "</div>";
