@@ -26,18 +26,20 @@
     <div class="container-fuild member-info">
       <div class="row flex-wrap m-0 justify-content-center">
         <h2>Danh sách thành viên</h2> 
-            <?php if(!empty($data["member"])):?> 
-                <?php foreach($data["member"] as $row): ?> 
-                    <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
-                        <div class="card card_node">
-                            <img class="card-img-top" src=" <?php echo $row["img"]; ?>" alt="Card image" >
-                            <div class="card-body flex justify-content-center">
-                                <button type="button" class="btn btn-primary " onclick="see_profile(this)" value="<?php echo $row["id"]; ?>">Chi tiết </button>
-                            </div>
+        <?php 
+        if(!empty($data["member"])) {
+            foreach($data["member"] as $row) {
+                echo "<div class='col-sm-6 col-md-5 col-lg-4 col-xl-3'>
+                    <div class='card card_node'>
+                        <img class='card-img-top' src=' " . $row["img"] . " ' alt='Card image'>
+                        <div class='card-body flex justify-content-center'>
+                            <button type='button' class='btn btn-primary' onclick='see_profile(this)' value=' " . $row["id"] . " '>Chi tiết </button>
                         </div>
-                    </div> 
-                <?php endforeach; ?> 
-            <?php endif;?>
+                    </div>
+                </div> ";
+            }
+        }
+        ?>
       </div>
     </div> 
     <?php echo 

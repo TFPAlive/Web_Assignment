@@ -195,7 +195,6 @@
                 </div>
             </div>";
         ?>
-        <div id="notice"></div>
         
         <?php require_once "Views/footer/index.php";?>
         <script src="Views/JS/contact.js"></script>
