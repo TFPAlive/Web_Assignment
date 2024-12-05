@@ -24,7 +24,7 @@
                 <div id="kc-header-wrapper">
                     <a href="../Member/index.html" style="height:100%" rel="nofollow">
                         <div class="kc-logo-text">
-                            <span id="md-wordmark">Reincarnation of Bookworm</span>
+                            <span id="md-wordmark">Budget PC</span>
                         </div>
                     </a>
                 </div>
